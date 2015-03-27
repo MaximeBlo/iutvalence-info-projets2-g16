@@ -12,7 +12,4 @@ public class Fichier {
 		this.nom = nom;
 	}
 	
-	public void enregistrer(){
-		
-	}
 }
