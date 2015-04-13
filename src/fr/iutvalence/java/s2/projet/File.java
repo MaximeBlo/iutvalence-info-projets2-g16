@@ -25,7 +25,7 @@ public class File {
 	}
 	
 	/**
-	 * Rename a file
+	 * Rename a file 
 	 * @param name : new file's name
 	 */
 	public void rename(String name){
