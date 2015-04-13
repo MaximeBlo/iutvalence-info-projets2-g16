@@ -1,15 +1,35 @@
 package fr.iutvalence.java.s2.projet;
 
-public class Bouton {
+/**
+ * Simple button, used to start an action
+ * @author Tutur
+ *
+ */
+public class Button {
 	
+	/**
+	 * button's position in the window
+	 */
 	private Position position;
-	private int largeur;
-	private int hauteur;
+	/**
+	 * button's width
+	 */
+	private int width;
+	/**
+	 * button's height
+	 */
+	private int height;
 	
-	public Bouton(Position position, int largeur, int hauteur){
+	/**
+	 * Create a button
+	 * @param position : button's position in the window
+	 * @param width : button's width 
+	 * @param height : button's height
+	 */
+	public Button(Position position, int width, int height){
 		this.position = position;
-		this.hauteur = hauteur;
-		this.largeur = largeur;
+		this.height = height;
+		this.width = width;
 	}
 	
 	

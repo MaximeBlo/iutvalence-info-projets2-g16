@@ -1,37 +1,67 @@
 package fr.iutvalence.java.s2.projet;
 
-public class Dossier {
+/**
+ * Class folder used to contain one or many files.
+ * @author Tutur
+ *
+ */
+public class Folder {
 	
-	private String nom;
-	private int nombreFichier;
-	private Fichier[] fichiers;
+	/**
+	 * Folder's name
+	 */
+	private String name;
+	/**
+	 * Number of file contained in the folder
+	 */
+	private int numberOfFile;
+	/**
+	 * Array containing all the files
+	 */
+	private File[] file;
 	
-	public Dossier(String nom){
-		this.nom = nom;
-		nombreFichier = 0;
-		fichiers = new Fichier[100];
+	/**
+	 * Create a folder 
+	 * @param name : name of the created folder
+	 */
+	public Folder(String name){
+		this.name = name;
+		numberOfFile = 0;
+		file = new File[100];
 	}
 	
-	public void ajouterFichier(Fichier fichier){
-		fichiers[nombreFichier] = fichier;
-		nombreFichier++;
+	/**
+	 * Add a file to the folder
+	 * @param fileToAdd : file to add to the folder
+	 */
+	public void addFile(File fileToAdd){
+		file[numberOfFile] = fileToAdd;
+		numberOfFile++;
 	}
 	
-	public void supprimerFichier(Fichier fichier){
-		int numeroFichier = 0;
+	/**
+	 * Delete a file from a folder
+	 * @param fileToDelete : file to be deleted
+	 */
+	public void deleteFile(File fileToDelete){
+		int fileNumber = 0;
 		
-		while(!(fichier.equals(fichiers[numeroFichier]))){
-			numeroFichier++;
+		while(!(fileToDelete.equals(file[fileNumber]))){
+			fileNumber++;
 		}
 		
-		if(numeroFichier != nombreFichier){
-			while(numeroFichier != nombreFichier){
-				fichiers[numeroFichier] = fichiers[numeroFichier+1];
+		if(fileNumber != numberOfFile){
+			while(fileNumber != numberOfFile){
+				file[fileNumber] = file[fileNumber+1];
 			}
 		}
 	}
 	
-	public void renommer(String nom){
-		this.nom = nom;
+	/**
+	 * Rename a folder
+	 * @param name : new folder's name
+	 */
+	public void rename(String name){
+		this.name = name;
 	}
 }

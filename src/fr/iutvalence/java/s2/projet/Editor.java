@@ -1,23 +1,54 @@
 package fr.iutvalence.java.s2.projet;
 
-public class Editeur {
+/**
+ * Class used to contain a file and change the content of it. Mostly used as a text editor
+ * @author Tutur
+ *
+ */
+public class Editor {
 
-	private Fichier fichierCharge;
+	/**
+	 * file loaded and displayed in the editor
+	 */
+	private File fileLoaded;
+	/**
+	 * editor's position in the window
+	 */
 	private Position position;
-	private int largeur;
-	private int hauteur;
+	/**
+	 * editor's width
+	 */
+	private int width;
+	/**
+	 * editor's height
+	 */
+	private int height;
 	
-	public Editeur(Position position, int largeur, int hauteur){
+	/**
+	 * Create an editor
+	 * @param position : editor's position in the window
+	 * @param width : editor's height
+	 * @param height : editor's width
+	 */
+	public Editor(Position position, int width, int height){
 		this.position = position;
-		this.hauteur = hauteur;
-		this.largeur = largeur;
+		this.height = height;
+		this.width = width;
 	}
 	
-	public void ouvrirFichier(Fichier fichier){
+	/**
+	 * Used to open a file
+	 * @param file : file you want to open
+	 */
+	public void openFile(File fileToOpen){
 		
 	}
 	
-	public void sauvegarderFichier(Fichier fichier){
+	/**
+	 * Used to save a file
+	 * @param file : file you want to save
+	 */
+	public void saveFile(File fileToSave){
 		
 	}
 	

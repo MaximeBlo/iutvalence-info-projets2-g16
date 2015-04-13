@@ -1,18 +1,43 @@
 package fr.iutvalence.java.s2.projet;
 
-public class Arborescence {
+/**
+ * Class TreeView used to navigate between files and folder thanks to nodes
+ * @author Tutur
+ *
+ */
+public class TreeView {
 	
+	/**
+	 * TreeView's position in the window
+	 */
 	private Position position;
-	private int largeur;
-	private int hauteur;
+	/**
+	 * TreeView's width
+	 */
+	private int width;
+	/**
+	 * TreeView's height
+	 */
+	private int height;
 	
-	public Arborescence(Position position, int largeur, int hauteur){
+	/**
+	 * Create a TreeView 
+	 * @param position : TreeView's position in the window
+	 * @param width : TreeView's width
+	 * @param height : TreeView's height
+	 */
+	public TreeView(Position position, int width, int height)
+	{
 		this.position = position;
-		this.largeur = largeur;
-		this.hauteur = hauteur;
+		this.width = width;
+		this.height = height;
 	}
 	
-	public void afficher(){
+	/**
+	 * //TODO DON'T KNOW WHAT THIS METHOD IS SUPPOSED TO DO YET
+	 */
+	public void display()
+	{
 		
 		
 	}

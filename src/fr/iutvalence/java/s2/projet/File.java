@@ -1,16 +1,35 @@
 package fr.iutvalence.java.s2.projet;
 
-public class Fichier {
+/**
+ * Class used as a file, containing String.
+ * @author Tutur
+ *
+ */
+public class File {
 
-	private String nom;
-	private int nombreCaractere;
+	/**
+	 * file's name
+	 */
+	private String name;
+	/**
+	 * number of character contained in the file
+	 */
+	private int numberOfChar;
 	
-	public Fichier(String nom){
-		this.nom = nom;
+	/**
+	 * Create a file
+	 * @param name : file's name
+	 */
+	public File(String name){
+		this.name = name;
 	}
 	
-	public void renommer(String nom){
-		this.nom = nom;
+	/**
+	 * Rename a file
+	 * @param name : new file's name
+	 */
+	public void rename(String name){
+		this.name = name;
 	}
 	
 }
