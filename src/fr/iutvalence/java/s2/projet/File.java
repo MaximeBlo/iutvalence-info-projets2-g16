@@ -31,5 +31,16 @@ public class File {
 	public void rename(String name){
 		this.name = name;
 	}
+
+	/**
+	* Return the name of the file.
+	* @return name The name of the file
+	*/
+	@Override
+	public String toString()
+	{
+		return name;
+	}
+	
 	
 }

@@ -21,6 +21,11 @@ public class TreeView {
 	private int height;
 	
 	/**
+	* Array of file in the TreeView
+	*/
+	private Folder[] folderCreated;
+	
+	/**
 	 * Create a TreeView 
 	 * @param position : TreeView's position in the window
 	 * @param width : TreeView's width
@@ -32,13 +37,23 @@ public class TreeView {
 		this.width = width;
 		this.height = height;
 	}
-	
+
 	/**
-	 * //TODO DON'T KNOW WHAT THIS METHOD IS SUPPOSED TO DO YET
-	 */
-	public void display()
+	* Return the representation of the TreeView in the consol
+	* @return representation The String of the representation of the treeView
+	*/
+	@Override
+	public String toString()
 	{
-		
-		
+		String representation = "";
+		for(int folderNumber = 0; folderNumber < folderCreated.length; folderNumber++){
+			representation+= "- " + folderCreated[folderNumber]+" :\n";
+			for(int fileNumber = 0; fileNumber < folderCreated[folderNumber].getNumberOfFile();fileNumber++){
+				representation+="--- " + folderCreated[folderNumber].getFile(fileNumber) + "\n";			
+			} 
+			// TODO Writer the representation in consol of the treeView
+		}
+		return representation;
 	}
+	
 }

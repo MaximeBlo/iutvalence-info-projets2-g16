@@ -64,4 +64,33 @@ public class Folder {
 	public void rename(String name){
 		this.name = name;
 	}
+	
+	/**
+	* Return the number of file in the folder.
+	* @return numberOfFile  the number of file ine the folder
+	*/
+	public int getNumberOfFile(){
+		return numberOfFile;
+	}
+	
+	/**
+	* return the file on the number fileNumber.
+	* @return file[fileNumber] the file to return
+	*/
+	public File getFile(int fileNumber){
+		return file[fileNumber];
+	}
+
+	
+	/**
+	* Return the name of the folder.
+	* @return name The name of the folder
+	*/
+	@Override
+	public String toString()
+	{
+		return name;
+	}
+	
+	
 }
