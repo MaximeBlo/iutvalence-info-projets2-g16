@@ -1,19 +1,29 @@
 package fr.iutvalence.java.s2.projet;
 
-import java.net.PasswordAuthentication;
-
-public class Generateur
+/**
+ * Generator of password
+ * @author maximeBlo
+ *
+ */
+public class Generator
 {
+	/**
+	 * List of option to create password
+	 */
 	private Attribut attribut;
 	
-	public Generateur(){
+	public Generator(){
 		this.attribut = new Attribut();	
 	}
 	
-	public Generateur(Attribut attribut){
+	public Generator(Attribut attribut){
 		this.attribut=attribut;
 	}
 	
+	/**
+	 * Method to generate password
+	 * @return the password generated
+	 */
 	public String generer(){
 		
 		String passwordGenerate = "";
@@ -25,7 +35,7 @@ public class Generateur
 				passwordGenerate += generateSpec();
 			} else if(random >= 100 && random < 200 && this.attribut.getMajuscule()){
 				passwordGenerate += generateMaj();
-			} else if(random >= 200 && random < 300 && this.attribut.getNombre()){
+			} else if(random >= 200 && random < 300 && this.attribut.getNumber()){
 				passwordGenerate += generateInt();
 			}else{
 				passwordGenerate += generateChar();
@@ -36,6 +46,10 @@ public class Generateur
 		return passwordGenerate;
 	}
 	
+	/**
+	 * Method to generate an Int
+	 * @return a int 
+	 */
 	private static int generateInt(){
 		int generateInt;
 		
@@ -44,6 +58,10 @@ public class Generateur
 		return generateInt;
 	}
 	
+	/**
+	 * Method to generate a char
+	 * @return a char
+	 */
 	private static char generateChar(){
 		char generateChar;
 		
@@ -52,6 +70,10 @@ public class Generateur
 		return generateChar;
 	}
 	
+	/**
+	 * Method to generate a Maj  //TODO Translate
+	 * @return a char in Maj
+	 */
 	private static char generateMaj(){
 		char generateMaj;
 		
@@ -60,6 +82,10 @@ public class Generateur
 		return generateMaj;
 	}
 	
+	/**
+	 * Methode to generate caractère spéciaux  //TODO Translate
+	 * @return the caractère spécial
+	 */
 	private static char generateSpec(){
 		char generateSpec;
 		

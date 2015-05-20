@@ -1,4 +1,6 @@
-package fr.iutvalence.java.s2.projet;
+package fr.iutvalence.java.s2.projet.IHM;
+
+import fr.iutvalence.java.s2.projet.Position;
 
 /**
  * Simple button, used to start an action

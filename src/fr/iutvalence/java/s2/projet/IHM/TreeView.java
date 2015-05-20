@@ -1,4 +1,7 @@
-package fr.iutvalence.java.s2.projet;
+package fr.iutvalence.java.s2.projet.IHM;
+
+import fr.iutvalence.java.s2.projet.Folder;
+import fr.iutvalence.java.s2.projet.Position;
 
 /**
  * Class TreeView used to navigate between files and folder thanks to nodes

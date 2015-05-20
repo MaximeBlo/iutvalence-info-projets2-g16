@@ -5,21 +5,21 @@ public class Attribut
 	public static final int TAILLE_PAR_DEFAUT = 8;
 	public static final boolean DESACTIVE = false;
 	private int length;
-	private boolean caracSpeciaux;
-	private boolean majuscule;
-	private boolean nombre;
+	private boolean caracSpeciaux;  //TODO Translate
+	private boolean majuscule; 		//TODO Translate
+	private boolean number;
 	
 	public Attribut(){
 		this.length = Attribut.TAILLE_PAR_DEFAUT;
 		this.caracSpeciaux = Attribut.DESACTIVE;
 		this.majuscule = Attribut.DESACTIVE;
-		this.nombre = Attribut.DESACTIVE;
+		this.number = Attribut.DESACTIVE;
 	}
 	
-	public Attribut(int length,boolean caracSpeciaux, boolean majuscule, boolean nombre){
+	public Attribut(int length,boolean caracSpeciaux, boolean majuscule, boolean number){
 		this.caracSpeciaux = caracSpeciaux;
 		this.majuscule = majuscule;
-		this.nombre = nombre;
+		this.number = number;
 		this.length = length;
 	}
 	
@@ -27,15 +27,15 @@ public class Attribut
 		return this.length;
 	}
 	
-	public boolean getCaracSpeciaux(){
+	public boolean getCaracSpeciaux(){	//TODO Translate
 		return this.caracSpeciaux;
 	}
 	
-	public boolean getMajuscule(){
+	public boolean getMajuscule(){	//TODO Translate
 		return this.majuscule;
 	}
 	
-	public boolean getNombre(){
-		return this.nombre;
+	public boolean getNumber(){
+		return this.number;
 	}
 }
