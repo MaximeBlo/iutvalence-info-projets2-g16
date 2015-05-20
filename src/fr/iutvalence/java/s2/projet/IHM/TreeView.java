@@ -101,6 +101,7 @@ public class TreeView {
 	public void addFolder(String name){
 		this.folderCreated[numberOfFolders] = new Folder(name);
 		this.numberOfFolders++;
+		System.out.println(this + "\n\n\n");
 	}
 	
 }
