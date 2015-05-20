@@ -1,5 +1,7 @@
 package fr.iutvalence.java.s2.projet;
 
+import java.util.Scanner;
+
 /**
  * Class folder used to contain one or many files.
  * @author Tutur
@@ -86,8 +88,7 @@ public class Folder {
 	* Return the name of the folder.
 	* @return name The name of the folder
 	*/
-	@Override
-	public String toString()
+	public String getName()
 	{
 		return name;
 	}
