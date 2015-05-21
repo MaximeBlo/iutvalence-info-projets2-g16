@@ -2,7 +2,7 @@ package fr.iutvalence.java.s2.projet.IHM;
 
 import java.util.Scanner;
 
-import fr.iutvalence.java.s2.projet.File;
+import fr.iutvalence.java.s2.projet.AFile;
 import fr.iutvalence.java.s2.projet.Folder;
 import fr.iutvalence.java.s2.projet.Position;
 
@@ -83,7 +83,7 @@ public class TreeView {
 		String fileName = name.nextLine();
 		for(int numberOfFolder = 0; numberOfFolder < this.numberOfFolders; numberOfFolder++){
 			if(this.folderCreated[numberOfFolder].getName().equals(folderName)){
-				this.folderCreated[numberOfFolder].addFile(new File(fileName));
+				this.folderCreated[numberOfFolder].addFile(new AFile(fileName));
 				System.out.println("The file " + fileName + " has been created in the folder: " + folderName);
 				return true;
 			}

@@ -10,7 +10,7 @@ public class Editor {
 	/**
 	 * file loaded and displayed in the editor
 	 */
-	private File fileLoaded;
+	private AFile fileLoaded;
 	/**
 	 * editor's position in the window
 	 */
@@ -40,7 +40,7 @@ public class Editor {
 	 * Used to open a file
 	 * @param file : file you want to open
 	 */
-	public void openFile(File fileToOpen){
+	public void openFile(AFile fileToOpen){
 		
 	}
 	
@@ -48,7 +48,7 @@ public class Editor {
 	 * Used to save a file
 	 * @param file : file you want to save
 	 */
-	public void saveFile(File fileToSave){
+	public void saveFile(AFile fileToSave){
 		
 	}
 	
