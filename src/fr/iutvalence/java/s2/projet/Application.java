@@ -23,7 +23,16 @@ public class Application{
 		
 		//treeView.addFolder("toto");
 		//treeView.createFile();
+		
+		
+		String[] test = new String[1];
+		test[0] = "Je suis un abruti";
+		treeView.addFolder("toto");
+		treeView.getFolder()[0].addFile(new AFile("titi"));
+		treeView.getFolder()[0].getFile()[0].write(test);
+		
 		System.out.println(treeView);
+		System.out.println(treeView.getFolder()[0].getFile()[0].read());
 		
 		int choix = 0;
 		do{

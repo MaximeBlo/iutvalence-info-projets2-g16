@@ -3,6 +3,7 @@ package fr.iutvalence.java.s2.projet;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -63,19 +64,40 @@ public class AFile {
 		return this.numberOfChar;
 	}
 	
+	/**
+	 * Read the file.
+	 * @return String of the file
+	 */
 	public String read(){
 		String text ="";
 		FileReader fileRead = null;
 		try {
 			fileRead = new FileReader(this.file);
-			text += fileRead.read();
+			while(fileRead.ready()){
+				text += (char)fileRead.read();
+			}
+			fileRead.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		return text;
+		return text;	
+	}
+	
+	public void write(String[] text){
+		
+		FileWriter fileWrite = null;
+		try {
+			fileWrite = new FileWriter(this.file);
+			for(int textIndex = 0; textIndex < text.length;textIndex++){
+				fileWrite.write(String.valueOf(text[textIndex]));
+			}
+			fileWrite.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 }

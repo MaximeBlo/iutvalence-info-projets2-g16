@@ -62,7 +62,7 @@ public class TreeView {
 		for(int folderNumber = 0; folderNumber < this.numberOfFolders; folderNumber++){
 			representation+= "- " + this.folderCreated[folderNumber].getName()+" :\n";
 			for(int fileNumber = 0; fileNumber < this.folderCreated[folderNumber].getNumberOfFile();fileNumber++){
-				representation+="--- " + this.folderCreated[folderNumber].getFile(fileNumber) + "\n";			
+				representation+="--- " + this.folderCreated[folderNumber].getFile()[fileNumber] + "\n";			
 			} 
 			// TODO Writer the representation in consol of the treeView
 		}
@@ -102,6 +102,14 @@ public class TreeView {
 		this.folderCreated[numberOfFolders] = new Folder(name);
 		this.numberOfFolders++;
 		System.out.println(this + "\n\n\n");
+	}
+	
+	/**
+	 * get folderCreated
+	 * @return folderCreated
+	 */
+	public Folder[] getFolder(){
+		return this.folderCreated;
 	}
 	
 }

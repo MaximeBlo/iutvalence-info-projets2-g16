@@ -1,7 +1,5 @@
 package fr.iutvalence.java.s2.projet;
 
-import java.util.Scanner;
-
 /**
  * Class folder used to contain one or many files.
  * @author Tutur
@@ -79,8 +77,8 @@ public class Folder {
 	* return the file on the number fileNumber.
 	* @return file[fileNumber] the file to return
 	*/
-	public AFile getFile(int fileNumber){
-		return file[fileNumber];
+	public AFile[] getFile(){
+		return this.file;
 	}
 
 	
