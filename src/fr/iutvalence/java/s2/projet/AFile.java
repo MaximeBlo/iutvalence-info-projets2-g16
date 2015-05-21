@@ -56,8 +56,9 @@ public class AFile {
 	
 	/**
 	 * get the number of character in the file.
-	 * @return the number of character
+	 * @return the number of character 
 	 */
+	
 	public int getNumberOfChar(){
 		return this.numberOfChar;
 	}
