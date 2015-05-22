@@ -13,18 +13,6 @@ import fr.iutvalence.java.s2.projet.Position;
  */
 public class TreeView {
 	
-	/**
-	 * TreeView's position in the window
-	 */
-	private Position position;
-	/**
-	 * TreeView's width
-	 */
-	private int width;
-	/**
-	 * TreeView's height
-	 */
-	private int height;
 	
 	/**
 	* Array of file in the TreeView
@@ -42,11 +30,8 @@ public class TreeView {
 	 * @param width : TreeView's width
 	 * @param height : TreeView's height
 	 */
-	public TreeView(Position position, int width, int height)
+	public TreeView()
 	{
-		this.position = position;
-		this.width = width;
-		this.height = height;
 		this.numberOfFolders = 0;
 		this.folderCreated = new Folder[100];
 	}

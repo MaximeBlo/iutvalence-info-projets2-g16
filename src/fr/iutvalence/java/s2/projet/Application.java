@@ -18,7 +18,7 @@ public class Application{
 	public static void main(String args[]){
 		
 		Editor editor = new Editor(new Position(20,20),20,20);
-		TreeView treeView = new TreeView(new Position(0,0),20,20);
+		TreeView treeView = new TreeView();
 		Generator gen = new Generator(new Attribut(25,true,true,true));
 		
 		//System.out.println(gen.generer());
@@ -32,7 +32,7 @@ public class Application{
 		test[1] = "toto";
 		treeView.addFolder("toto");
 		treeView.getFolder()[0].addFile(new AFile("titi",treeView.getFolder("toto")));
-		treeView.getFolder()[0].getFile()[0].write(test);
+		//treeView.getFolder()[0].getFile()[0].write(test);
 		
 		System.out.println(treeView);
 		System.out.println(treeView.getFolder()[0].getFile()[0].read());

@@ -40,6 +40,7 @@ public class AFile {
 		this.name = name;
 		this.file = new File(name);
 		this.parentFolder = parentFolder;
+		this.fileInitialization();
 	}
 	
 	/**
@@ -100,10 +101,15 @@ public class AFile {
 	public void write(String[] text){
 		
 		FileWriter fileWrite = null;
+		String[] textToWrite = new String[text.length+1];
+		for(int lineInText = 0; lineInText < text.length; lineInText++){
+			textToWrite[lineInText+1] = text[lineInText];
+		}
+		textToWrite[0] = this.read();
 		try {
 			fileWrite = new FileWriter(this.file);
 			for(int textIndex = 0; textIndex < text.length;textIndex++){
-				fileWrite.write(String.valueOf(text[textIndex]));
+				fileWrite.write(String.valueOf(textToWrite[textIndex]));
 			}
 			fileWrite.close();
 		} catch (IOException e) {
@@ -112,11 +118,12 @@ public class AFile {
 		
 	}
 	
-	public void FileInitialization(){
+	public void fileInitialization(){
 		FileWriter fileWrite = null;
 		try {
 			fileWrite = new FileWriter(this.file);
-			fileWrite.write(String.valueOf(this.parentFolder.getName()));
+			fileWrite.write(String.valueOf(this.parentFolder.getName()+ "\n"));
+			fileWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
