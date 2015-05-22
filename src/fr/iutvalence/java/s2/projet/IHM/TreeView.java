@@ -99,7 +99,7 @@ public class TreeView {
 	 * @param name the name of the folder
 	 */
 	public void addFolder(String name){
-		this.folderCreated[numberOfFolders] = new Folder(name);
+		this.folderCreated[this.numberOfFolders] = new Folder(name);
 		this.numberOfFolders++;
 		System.out.println(this + "\n\n\n");
 	}

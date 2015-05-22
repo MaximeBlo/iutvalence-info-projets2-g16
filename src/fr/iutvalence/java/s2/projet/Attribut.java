@@ -1,40 +1,75 @@
 package fr.iutvalence.java.s2.projet;
-
+/**
+ * Attribut.
+ * @author Elisa
+ *
+ */
 public class Attribut
 {
-	public static final int TAILLE_PAR_DEFAUT = 8;
+	/**
+	 * Default length.
+	 */
+	public static final int DEFAULT_LENGTH = 8;
+	/**
+	 * Active/Desactive boolean.
+	 */
 	public static final boolean DESACTIVE = false;
 	private int length;
-	private boolean caracSpeciaux;  //TODO Translate
-	private boolean majuscule; 		//TODO Translate
+	private boolean specialChar;
+	private boolean uppercase;
 	private boolean number;
 	
+	/**
+	 * Constructor without param.
+	 */
 	public Attribut(){
-		this.length = Attribut.TAILLE_PAR_DEFAUT;
-		this.caracSpeciaux = Attribut.DESACTIVE;
-		this.majuscule = Attribut.DESACTIVE;
+		this.length = Attribut.DEFAULT_LENGTH;
+		this.specialChar = Attribut.DESACTIVE;
+		this.uppercase = Attribut.DESACTIVE;
 		this.number = Attribut.DESACTIVE;
 	}
-	
+	/**
+	 * Constructor with param.
+	 * @param length
+	 * @param caracSpeciaux with/without
+	 * @param majuscule with/without
+	 * @param number with/without
+	 */
 	public Attribut(int length,boolean caracSpeciaux, boolean majuscule, boolean number){
-		this.caracSpeciaux = caracSpeciaux;
-		this.majuscule = majuscule;
+		this.specialChar = caracSpeciaux;
+		this.uppercase = majuscule;
 		this.number = number;
 		this.length = length;
 	}
 	
+	/**
+	 * Method to get the length.
+	 * @return length
+	 */
 	public int getLength(){
 		return this.length;
 	}
 	
-	public boolean getCaracSpeciaux(){	//TODO Translate
-		return this.caracSpeciaux;
+	/**
+	 * Method to get if special character are activate or not
+	 * @return
+	 */
+	public boolean getSpecialChar(){
+		return this.specialChar;
 	}
 	
-	public boolean getMajuscule(){	//TODO Translate
-		return this.majuscule;
+	/**
+	 * Method to get if uppercase  letter are activate or not
+	 * @return
+	 */
+	public boolean getUppercase(){
+		return this.uppercase;
 	}
 	
+	/**
+	 * Method to get if number are activate or not
+	 * @return
+	 */
 	public boolean getNumber(){
 		return this.number;
 	}

@@ -12,10 +12,16 @@ public class Generator
 	 */
 	private Attribut attribut;
 	
+	/**
+	 * Constructor without param.
+	 */
 	public Generator(){
 		this.attribut = new Attribut();	
 	}
-	
+	/**
+	 * Constructor with param.
+	 * @param attribut
+	 */
 	public Generator(Attribut attribut){
 		this.attribut=attribut;
 	}
@@ -28,13 +34,13 @@ public class Generator
 		
 		String passwordGenerate = "";
 		
-		for(int numberOfCharacter = 0; numberOfCharacter < attribut.getLength();numberOfCharacter++){
+		for(int numberOfCharacter = 0; numberOfCharacter < this.attribut.getLength();numberOfCharacter++){
 			int random = (int) (Math.random()*400);
 		
-			if(random < 100 && this.attribut.getCaracSpeciaux()){
-				passwordGenerate += generateSpec();
-			} else if(random >= 100 && random < 200 && this.attribut.getMajuscule()){
-				passwordGenerate += generateMaj();
+			if(random < 100 && this.attribut.getSpecialChar()){
+				passwordGenerate += generateSpecialCharacter();
+			} else if(random >= 100 && random < 200 && this.attribut.getUppercase()){
+				passwordGenerate += generateUppercase();
 			} else if(random >= 200 && random < 300 && this.attribut.getNumber()){
 				passwordGenerate += generateInt();
 			}else{
@@ -71,22 +77,22 @@ public class Generator
 	}
 	
 	/**
-	 * Method to generate a Maj  //TODO Translate
-	 * @return a char in Maj
+	 * Method to generate an Uppercase letter
+	 * @return a char in Uppercase
 	 */
-	private static char generateMaj(){
-		char generateMaj;
+	private static char generateUppercase(){
+		char generateUppercase;
 		
-		generateMaj = (char)((int) (Math.random()*25)+65);
+		generateUppercase = (char)((int) (Math.random()*25)+65);
 		
-		return generateMaj;
+		return generateUppercase;
 	}
 	
 	/**
-	 * Methode to generate caractère spéciaux  //TODO Translate
-	 * @return the caractère spécial
+	 * Method to generate special character
+	 * @return the special character
 	 */
-	private static char generateSpec(){
+	private static char generateSpecialCharacter(){
 		char generateSpec;
 		
 		generateSpec = (char)((int) (Math.random()*14)+33);

@@ -11,8 +11,9 @@ import fr.iutvalence.java.s2.projet.IHM.TreeView;
 public class Application{
 	
 	/**
-	* Main
-	*/
+	 * Main.
+	 * @param args
+	 */
 	public static void main(String args[]){
 		
 		Editor editor = new Editor(new Position(20,20),20,20);

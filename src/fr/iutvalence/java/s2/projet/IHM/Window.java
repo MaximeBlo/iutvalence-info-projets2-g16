@@ -22,11 +22,11 @@ public class Window
 	private int height;
 	
 	/**
-	* window's contructor
-	* @param name: the window's name
-	* @param width : the window's width
-	* @param height : the window's height
-	*/
+	 * window's contructor
+	 * @param name the window's name
+	 * @param width the window's width
+	 * @param heigth the window's height
+	 */
 	public Window(String name, int width, int heigth){
 		this.name = name;
 		this.width = width;

@@ -45,14 +45,15 @@ public class AFile {
 		this.file.renameTo(new File(name));
 	}
 
+
 	/**
-	* Return the name of the file.
-	* @return name The name of the file
-	*/
+	 * Return the name of the file.
+	 * @return name The name of the file
+	 */
 	@Override
 	public String toString()
 	{
-		return name;
+		return this.name;
 	}
 	
 	/**
@@ -86,6 +87,10 @@ public class AFile {
 		return text;	
 	}
 	
+	/**
+	 * To show a file.
+	 * @param text
+	 */
 	public void write(String[] text){
 		
 		FileWriter fileWrite = null;

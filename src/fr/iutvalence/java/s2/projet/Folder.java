@@ -26,8 +26,8 @@ public class Folder {
 	 */
 	public Folder(String name){
 		this.name = name;
-		numberOfFile = 0;
-		file = new AFile[100];
+		this.numberOfFile = 0;
+		this.file = new AFile[100];
 	}
 	
 	/**
@@ -35,8 +35,8 @@ public class Folder {
 	 * @param fileToAdd : file to add to the folder
 	 */
 	public void addFile(AFile fileToAdd){
-		file[numberOfFile] = fileToAdd;
-		numberOfFile++;
+		this.file[this.numberOfFile] = fileToAdd;
+		this.numberOfFile++;
 	}
 	
 	/**
@@ -46,13 +46,13 @@ public class Folder {
 	public void deleteFile(AFile fileToDelete){
 		int fileNumber = 0;
 		
-		while(!(fileToDelete.equals(file[fileNumber]))){
+		while(!(fileToDelete.equals(this.file[fileNumber]))){
 			fileNumber++;
 		}
 		
-		if(fileNumber != numberOfFile){
-			while(fileNumber != numberOfFile){
-				file[fileNumber] = file[fileNumber+1];
+		if(fileNumber != this.numberOfFile){
+			while(fileNumber != this.numberOfFile){
+				this.file[fileNumber] = this.file[fileNumber+1];
 			}
 		}
 	}
@@ -70,7 +70,7 @@ public class Folder {
 	* @return numberOfFile  the number of file ine the folder
 	*/
 	public int getNumberOfFile(){
-		return numberOfFile;
+		return this.numberOfFile;
 	}
 	
 	/**
@@ -88,7 +88,7 @@ public class Folder {
 	*/
 	public String getName()
 	{
-		return name;
+		return this.name;
 	}
 	
 	

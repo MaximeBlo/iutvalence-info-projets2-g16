@@ -27,10 +27,10 @@ public class Position {
 	private final int positionY;
 	
 	/**
-	* Position's construtor
-	* @param positionX : an X's choosen value
-	* @param positionY: an Y's choosen value
-	*/
+	 * Position's construtor
+	 * @param positionX an X's choosen value
+	 * @param positionY an Y's choosen value
+	 */
 	public Position( int positionX, int positionY){
 		this.positionX = positionX;
 		this.positionY = positionY;
@@ -46,15 +46,17 @@ public class Position {
 	}
 	
 	/**
-	* give the PositionX's value
-	*/
+	 * give the PositionX's value
+	 * @return positionX
+	 */
 	public int getX(){
 		return this.positionX;
 	}
-	
+
 	/**
-	* Give the PositionY's value
-	*/
+	 * Give the PositionY's value
+	 * @return positionY
+	 */
 	public int getY(){
 		return this.positionY;
 	}
