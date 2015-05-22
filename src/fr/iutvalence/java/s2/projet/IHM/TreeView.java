@@ -83,7 +83,7 @@ public class TreeView {
 		String fileName = name.nextLine();
 		for(int numberOfFolder = 0; numberOfFolder < this.numberOfFolders; numberOfFolder++){
 			if(this.folderCreated[numberOfFolder].getName().equals(folderName)){
-				this.folderCreated[numberOfFolder].addFile(new AFile(fileName));
+				this.folderCreated[numberOfFolder].addFile(new AFile(fileName,this.getFolder(folderName)));
 				System.out.println("The file " + fileName + " has been created in the folder: " + folderName);
 				return true;
 			}
@@ -110,6 +110,18 @@ public class TreeView {
 	 */
 	public Folder[] getFolder(){
 		return this.folderCreated;
+	}
+	
+	public Folder getFolder(String folderName){
+		Folder folderFind = null;
+		
+		for(int numberOfFolder = 0; numberOfFolder < this.numberOfFolders;numberOfFolder++){
+			if(this.folderCreated[numberOfFolder].getName().equals(folderName)){
+				folderFind = this.folderCreated[numberOfFolder];
+			}
+		}
+		
+		return folderFind;
 	}
 	
 }

@@ -80,6 +80,18 @@ public class Folder {
 	public AFile[] getFile(){
 		return this.file;
 	}
+	
+	public AFile getFile(String fileName){
+		AFile fileFound = null;
+		
+		for(int numberOfFile = 0; numberOfFile < this.numberOfFile;numberOfFile++){
+			if(this.file[numberOfFile].toString().equals(fileName)){
+				fileFound = this.file[numberOfFile];
+			}
+		}
+		
+		return fileFound;
+	}
 
 	
 	/**

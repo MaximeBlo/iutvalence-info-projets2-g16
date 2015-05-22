@@ -28,12 +28,18 @@ public class AFile {
 	private File file;
 	
 	/**
+	 * The parent folder of the file.
+	 */
+	private Folder parentFolder;
+	
+	/**
 	 * Create a file
 	 * @param name : file's name
 	 */
-	public AFile(String name){
+	public AFile(String name, Folder parentFolder){
 		this.name = name;
 		this.file = new File(name);
+		this.parentFolder = parentFolder;
 	}
 	
 	/**
