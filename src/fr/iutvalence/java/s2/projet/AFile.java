@@ -111,4 +111,14 @@ public class AFile {
 		}
 		
 	}
+	
+	public void FileInitialization(){
+		FileWriter fileWrite = null;
+		try {
+			fileWrite = new FileWriter(this.file);
+			fileWrite.write(String.valueOf(this.parentFolder.getName()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
