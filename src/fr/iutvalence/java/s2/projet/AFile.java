@@ -39,8 +39,12 @@ public class AFile {
 	public AFile(String name, Folder parentFolder){
 		this.name = name;
 		this.file = new File(name);
+		try {
+			this.file.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		this.parentFolder = parentFolder;
-		this.fileInitialization();
 	}
 	
 	/**
@@ -94,23 +98,21 @@ public class AFile {
 		return text;	
 	}
 	
+	
 	/**
-	 * To show a file.
-	 * @param text
+	 * To write in a file.
+	 * @param text the text to write
 	 */
-	public void write(String[] text){
+	public void write(String text){
 		
 		FileWriter fileWrite = null;
-		String[] textToWrite = new String[text.length+1];
-		for(int lineInText = 0; lineInText < text.length; lineInText++){
-			textToWrite[lineInText+1] = text[lineInText];
-		}
-		textToWrite[0] = this.read();
+		String textToWrite = new String();
+		textToWrite = this.read();
+		textToWrite += text;
 		try {
 			fileWrite = new FileWriter(this.file);
-			for(int textIndex = 0; textIndex < text.length;textIndex++){
-				fileWrite.write(String.valueOf(textToWrite[textIndex]));
-			}
+			System.out.println(String.valueOf(textToWrite));
+			fileWrite.write(textToWrite);
 			fileWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -118,6 +120,9 @@ public class AFile {
 		
 	}
 	
+	/**
+	 * @deprecated
+	 */
 	public void fileInitialization(){
 		FileWriter fileWrite = null;
 		try {

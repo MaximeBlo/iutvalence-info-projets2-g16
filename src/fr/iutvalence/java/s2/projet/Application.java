@@ -23,19 +23,17 @@ public class Application{
 		
 		//System.out.println(gen.generer());
 		
-		//treeView.addFolder("toto");
-		//treeView.createFile();
 		
 		
-		String[] test = new String[2];
+		/*String[] test = new String[2];
 		test[0] = "Je suis un abruti\n";
 		test[1] = "toto";
 		treeView.addFolder("toto");
-		treeView.getFolder()[0].addFile(new AFile("titi",treeView.getFolder("toto")));
+		treeView.getFolder()[0].addFile(new AFile("titi",treeView.getFolder("toto")));*/
 		//treeView.getFolder()[0].getFile()[0].write(test);
 		
-		System.out.println(treeView);
-		System.out.println(treeView.getFolder()[0].getFile()[0].read());
+		//System.out.println(treeView);
+		//System.out.println(treeView.getFolder()[0].getFile()[0].read());
 		
 		int choix = 0;
 		do{
@@ -46,6 +44,7 @@ public class Application{
 			System.out.println("4. Display treeView");
 			System.out.println("5. Write in file");
 			System.out.println("6. Read in file");
+			System.out.println("7. Save TreeView");
 			System.out.println("0. Quit");
 			choiceSwitch = new Scanner(System.in);
 			choix = choiceSwitch.nextInt();
@@ -73,11 +72,12 @@ public class Application{
 					System.out.println("What is the name of the file? \n");
 					String nameFile = nameF.nextLine();
 					System.out.println("What is the text to write? \n");
-					String[] text = new String[5];
-					text[0] = nameF.nextLine();
+					String text = new String();
+					text = nameF.nextLine();
 					
-					System.out.println(text[0]);
+					//System.out.println(text);
 					treeView.getFolder(nameFolder).getFile(nameFile).write(text);
+					//System.out.println(treeView.getFolder(nameFolder).getFile(nameFile).read());
 					break;
 				case 6:
 					System.out.println("What is the name of the folder? \n");
@@ -88,6 +88,9 @@ public class Application{
 					
 					System.out.println(treeView.getFolder(nameFold).getFile(nameFil).read());
 					
+					break;
+				case 7:
+					treeView.saveTreeView();
 					break;
 			}
 			
