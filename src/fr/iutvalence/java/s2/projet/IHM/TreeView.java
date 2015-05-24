@@ -1,5 +1,6 @@
 package fr.iutvalence.java.s2.projet.IHM;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -42,10 +43,11 @@ public class TreeView {
 	 */
 	public TreeView()
 	{
-		this.reconstructionTreeView();
 		this.numberOfFolders = 0;
 		this.folderCreated = new Folder[100];
 		this.treeViewFile = new File("save");
+		
+		this.reconstructionTreeView();
 	}
 
 	/**
@@ -137,33 +139,47 @@ public class TreeView {
 		return folderFind;
 	}
 	
+	/**
+	 * Reconstruct the TreeView at the launch of application
+	 */
 	private void reconstructionTreeView(){
 		
 		FileReader recuperationFileSave = null;
 		String[] partsOfSave = new String[300];
+		String folderName;
+		int fileIndex;
+		int numberOfFileInFolder;
 		
 		try {
 			recuperationFileSave = new FileReader("save");
-			
+			BufferedReader bufferFile = new BufferedReader(recuperationFileSave);
 			int indexOfParts = 0;
+			fileIndex =0;
+			String line = bufferFile.readLine();
 			
-			while(recuperationFileSave.ready()){  //TODO
-				String text = "";
-				char letter = (char)recuperationFileSave.read();
-				
-				while( letter != (char)32){
-					text += letter;
-					letter = (char)recuperationFileSave.read();
-					System.out.println(letter);
-				}
-				
-				partsOfSave[indexOfParts] = text;
-				System.out.println(partsOfSave[indexOfParts]);
+			while(line != null){ 
+				partsOfSave[indexOfParts] = line;
+				line = bufferFile.readLine();
 				indexOfParts++;
 			}
-			
-			
-			
+			while(partsOfSave[fileIndex] != null){
+				System.out.println(fileIndex + "   " + partsOfSave[fileIndex] );
+				folderName = partsOfSave[fileIndex].substring(0, partsOfSave[fileIndex].indexOf(' '));
+				this.addFolder(folderName);
+				numberOfFileInFolder = partsOfSave[fileIndex].charAt((partsOfSave[fileIndex].indexOf(' '))+1)-48;
+				
+				
+				int numberOfFile = 0;
+				
+				while(numberOfFileInFolder > 0){
+					this.getFolder(folderName).addFile(new AFile(partsOfSave[numberOfFile+1+fileIndex],this.getFolder(folderName))); // TODO
+					numberOfFileInFolder--;
+					numberOfFile++;
+				}
+				
+				fileIndex += numberOfFile+1;
+				
+			}
 		} catch (FileNotFoundException e) {
 			this.numberOfFolders = 0;
 			this.folderCreated = new Folder[100];
@@ -172,5 +188,6 @@ public class TreeView {
 			e.printStackTrace();
 		}
 	}
+
 	
 }
