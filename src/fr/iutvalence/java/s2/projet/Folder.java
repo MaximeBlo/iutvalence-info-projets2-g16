@@ -1,5 +1,7 @@
 package fr.iutvalence.java.s2.projet;
 
+import java.util.ArrayList;
+
 /**
  * Class folder used to contain one or many files.
  * @author Tutur
@@ -18,7 +20,7 @@ public class Folder {
 	/**
 	 * Array containing all the files
 	 */
-	private AFile[] file;
+	private ArrayList<AFile> file;
 	
 	/**
 	 * Create a folder 
@@ -27,7 +29,7 @@ public class Folder {
 	public Folder(String name){
 		this.name = name;
 		this.numberOfFile = 0;
-		this.file = new AFile[100];
+		this.file = new ArrayList<AFile>();
 	}
 	
 	/**
@@ -35,7 +37,7 @@ public class Folder {
 	 * @param fileToAdd : file to add to the folder
 	 */
 	public void addFile(AFile fileToAdd){
-		this.file[this.numberOfFile] = fileToAdd;
+		this.file.add(fileToAdd);
 		this.numberOfFile++;
 	}
 	
@@ -46,15 +48,13 @@ public class Folder {
 	public void deleteFile(AFile fileToDelete){
 		int fileNumber = 0;
 		
-		while(!(fileToDelete.equals(this.file[fileNumber]))){
+		while(!(fileToDelete.equals(this.file.get(fileNumber)))){
 			fileNumber++;
 		}
 		
-		if(fileNumber != this.numberOfFile){
-			while(fileNumber != this.numberOfFile){
-				this.file[fileNumber] = this.file[fileNumber+1];
-			}
-		}
+		this.file.get(fileNumber).delete();
+		this.file.remove(fileNumber);
+		this.numberOfFile--;
 	}
 	
 	/**
@@ -77,7 +77,7 @@ public class Folder {
 	* return the file on the number fileNumber.
 	* @return file[fileNumber] the file to return
 	*/
-	public AFile[] getFile(){
+	public ArrayList<AFile> getFile(){
 		return this.file;
 	}
 	
@@ -85,8 +85,8 @@ public class Folder {
 		AFile fileFound = null;
 		
 		for(int numberOfFile = 0; numberOfFile < this.numberOfFile;numberOfFile++){
-			if(this.file[numberOfFile].toString().equals(fileName)){
-				fileFound = this.file[numberOfFile];
+			if(this.file.get(numberOfFile).toString().equals(fileName)){
+				fileFound = this.file.get(numberOfFile);
 			}
 		}
 		

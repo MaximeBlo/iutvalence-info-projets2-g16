@@ -23,7 +23,8 @@ public class Application{
 		
 		//System.out.println(gen.generer());
 		
-		
+		//treeView.createFile();
+		//System.out.println(treeView);
 		
 		/*String[] test = new String[2];
 		test[0] = "Je suis un abruti\n";
@@ -45,6 +46,7 @@ public class Application{
 			System.out.println("5. Write in file");
 			System.out.println("6. Read in file");
 			System.out.println("7. Save TreeView");
+			System.out.println("8. Delete a file");
 			System.out.println("0. Quit");
 			choiceSwitch = new Scanner(System.in);
 			choix = choiceSwitch.nextInt();
@@ -75,9 +77,7 @@ public class Application{
 					String text = new String();
 					text = nameF.nextLine();
 					
-					//System.out.println(text);
 					treeView.getFolder(nameFolder).getFile(nameFile).write(text);
-					//System.out.println(treeView.getFolder(nameFolder).getFile(nameFile).read());
 					break;
 				case 6:
 					System.out.println("What is the name of the folder? \n");
@@ -91,6 +91,15 @@ public class Application{
 					break;
 				case 7:
 					treeView.saveTreeView();
+					break;
+				case 8:
+					System.out.println("What is the name of the folder? \n");
+					nameF = new Scanner(System.in);
+					String nameofFolder = nameF.nextLine();
+					System.out.println("What is the name of the file? \n");
+					String nameofFile = nameF.nextLine();
+					treeView.getFolder(nameofFolder).deleteFile(treeView.getFolder(nameofFolder).getFile(nameofFile));
+					
 					break;
 			}
 			

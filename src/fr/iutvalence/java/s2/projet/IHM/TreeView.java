@@ -61,7 +61,7 @@ public class TreeView {
 		for(int folderNumber = 0; folderNumber < this.numberOfFolders; folderNumber++){
 			representation+= "- " + this.folderCreated[folderNumber].getName()+" :\n";
 			for(int fileNumber = 0; fileNumber < this.folderCreated[folderNumber].getNumberOfFile();fileNumber++){
-				representation+="--- " + this.folderCreated[folderNumber].getFile()[fileNumber] + "\n";			
+				representation+="--- " + this.folderCreated[folderNumber].getFile().get(fileNumber) + "\n";			
 			} 
 		}
 		return representation;
@@ -101,6 +101,9 @@ public class TreeView {
 		this.numberOfFolders++;
 	}
 	
+	/**
+	 * Save the TreeView in a textFile.
+	 */
 	public void saveTreeView(){
 		try {
 			FileWriter saveFile = new FileWriter(treeViewFile);
@@ -108,7 +111,7 @@ public class TreeView {
 			for(int numberOfFolder = 0; numberOfFolder < this.numberOfFolders;numberOfFolder++){
 				saveFile.write(this.folderCreated[numberOfFolder].getName() + (char)32 + this.folderCreated[numberOfFolder].getNumberOfFile() + "\n");
 				for(int numberOfFile = 0; numberOfFile < (this.folderCreated[numberOfFolder].getNumberOfFile()); numberOfFile++){
-					saveFile.write(this.folderCreated[numberOfFolder].getFile()[numberOfFile].toString() + "\n");
+					saveFile.write(this.folderCreated[numberOfFolder].getFile().get(numberOfFile).toString() + "\n");
 				}
 			}
 			
@@ -163,7 +166,6 @@ public class TreeView {
 				indexOfParts++;
 			}
 			while(partsOfSave[fileIndex] != null){
-				System.out.println(fileIndex + "   " + partsOfSave[fileIndex] );
 				folderName = partsOfSave[fileIndex].substring(0, partsOfSave[fileIndex].indexOf(' '));
 				this.addFolder(folderName);
 				numberOfFileInFolder = partsOfSave[fileIndex].charAt((partsOfSave[fileIndex].indexOf(' '))+1)-48;
@@ -172,7 +174,7 @@ public class TreeView {
 				int numberOfFile = 0;
 				
 				while(numberOfFileInFolder > 0){
-					this.getFolder(folderName).addFile(new AFile(partsOfSave[numberOfFile+1+fileIndex],this.getFolder(folderName))); // TODO
+					this.getFolder(folderName).addFile(new AFile(partsOfSave[numberOfFile+1+fileIndex],this.getFolder(folderName)));
 					numberOfFileInFolder--;
 					numberOfFile++;
 				}
@@ -180,6 +182,8 @@ public class TreeView {
 				fileIndex += numberOfFile+1;
 				
 			}
+			
+			bufferFile.close();
 		} catch (FileNotFoundException e) {
 			this.numberOfFolders = 0;
 			this.folderCreated = new Folder[100];

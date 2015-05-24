@@ -106,13 +106,9 @@ public class AFile {
 	public void write(String text){
 		
 		FileWriter fileWrite = null;
-		String textToWrite = new String();
-		textToWrite = this.read();
-		textToWrite += text;
 		try {
-			fileWrite = new FileWriter(this.file);
-			System.out.println(String.valueOf(textToWrite));
-			fileWrite.write(textToWrite);
+			fileWrite = new FileWriter(this.file,true);
+			fileWrite.write(text);
 			fileWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -132,5 +128,14 @@ public class AFile {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public void delete(){
+		this.file.delete();
+	}
+	
+	public File getFile(){
+		return file;
 	}
 }
