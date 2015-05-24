@@ -2,7 +2,7 @@ package fr.iutvalence.java.s2.projet;
 
 import java.util.Scanner;
 
-import fr.iutvalence.java.s2.projet.IHM.TreeView;
+import fr.iutvalence.java.s2.projet.IHM.Window;
 
 /**
 * The main application
@@ -21,6 +21,7 @@ public class Application{
 		TreeView treeView = new TreeView();
 		Generator gen = new Generator(new Attribut(25,true,true,true));
 		
+		Window application = new Window();
 		//System.out.println(gen.generer());
 		
 		//treeView.createFile();
@@ -36,7 +37,7 @@ public class Application{
 		//System.out.println(treeView);
 		//System.out.println(treeView.getFolder()[0].getFile()[0].read());
 		
-		int choix = 0;
+		/*int choix = 0;
 		do{
 			System.out.println("What would you do? \n");
 			System.out.println("1. Create a folder");
@@ -106,7 +107,7 @@ public class Application{
 			
 		}while(choix != 0);
 		
-		choiceSwitch.close();
+		choiceSwitch.close();*/
 	} 
 	
 }

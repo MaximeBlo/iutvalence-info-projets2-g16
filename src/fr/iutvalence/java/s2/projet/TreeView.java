@@ -1,4 +1,4 @@
-package fr.iutvalence.java.s2.projet.IHM;
+package fr.iutvalence.java.s2.projet;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,10 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
-import fr.iutvalence.java.s2.projet.AFile;
-import fr.iutvalence.java.s2.projet.Folder;
-import fr.iutvalence.java.s2.projet.Position;
 
 /**
  * Class TreeView used to navigate between files and folder thanks to nodes
