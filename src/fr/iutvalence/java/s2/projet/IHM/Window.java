@@ -63,6 +63,8 @@ public class Window extends JFrame
 	    
 	    this.setVisible(true);
 	}
+	
+	
 	private void buildMenuItem() {
 		this.file = new JMenu("File");
 	    this.folder = new JMenu("Folder");
@@ -71,7 +73,22 @@ public class Window extends JFrame
 	    
 	    this.buildMenuFile();
 	    this.buildMenuFolder();
+	    this.buildMenuPassword();
+	    this.buildMenuSave();
 	}
+	
+	
+	private void buildMenuSave() {
+		this.save.add(new JMenuItem("Save all"));
+		
+	}
+
+
+	private void buildMenuPassword() {
+		this.password.add(new JMenuItem("Generate password"));
+	}
+
+
 	private void buildMenu() {
 		
 		this.buildMenuItem();
@@ -81,11 +98,15 @@ public class Window extends JFrame
 	    this.menu.add(this.password);
 	    this.menu.add(this.save);
 	}
+	
+	
 	private void buildMenuFolder() {
 		this.folder.add(new JMenuItem("Create folder"));
 	    this.folder.add(new JMenuItem("Rename folder"));
 	    this.folder.add(new JMenuItem("Delete folder"));
 	}
+	
+	
 	private void buildMenuFile() {
 		this.file.add(new JMenuItem("Create File"));
 	    this.file.add(new JMenuItem("Rename File"));
