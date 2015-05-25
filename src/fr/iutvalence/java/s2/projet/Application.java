@@ -21,7 +21,7 @@ public class Application{
 		TreeView treeView = new TreeView();
 		Generator gen = new Generator(new Attribut(25,true,true,true));
 		
-		Window application = new Window();
+		//Window application = new Window();
 		//System.out.println(gen.generer());
 		
 		//treeView.createFile();
@@ -37,7 +37,7 @@ public class Application{
 		//System.out.println(treeView);
 		//System.out.println(treeView.getFolder()[0].getFile()[0].read());
 		
-		/*int choix = 0;
+		int choix = 0;
 		do{
 			System.out.println("What would you do? \n");
 			System.out.println("1. Create a folder");
@@ -48,6 +48,7 @@ public class Application{
 			System.out.println("6. Read in file");
 			System.out.println("7. Save TreeView");
 			System.out.println("8. Delete a file");
+			System.out.println("9. Delete a folder");
 			System.out.println("0. Quit");
 			choiceSwitch = new Scanner(System.in);
 			choix = choiceSwitch.nextInt();
@@ -78,7 +79,7 @@ public class Application{
 					String text = new String();
 					text = nameF.nextLine();
 					
-					treeView.getFolder(nameFolder).getFile(nameFile).write(text);
+					treeView.getFolder(nameFolder).getFile(nameFile).write(text + "\n");
 					break;
 				case 6:
 					System.out.println("What is the name of the folder? \n");
@@ -102,12 +103,19 @@ public class Application{
 					treeView.getFolder(nameofFolder).deleteFile(treeView.getFolder(nameofFolder).getFile(nameofFile));
 					
 					break;
+				case 9:
+					System.out.println("What is the name of the folder? \n");
+					nameF = new Scanner(System.in);
+					String nameofFolderToDelete = nameF.nextLine();
+					treeView.deleteFolder(treeView.getFolder(nameofFolderToDelete));
+					
+					break;
 			}
 			
 			
 		}while(choix != 0);
 		
-		choiceSwitch.close();*/
+		choiceSwitch.close();
 	} 
 	
 }

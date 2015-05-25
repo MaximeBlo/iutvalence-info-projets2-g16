@@ -109,8 +109,8 @@ public class TreeView {
 			folderNumber++;
 		}
 		
-		for(AFile fileToDelete : this.folderCreated.get(folderNumber).getFile()){
-			this.folderCreated.get(folderNumber).deleteFile(fileToDelete);
+		for(int indexOfAFile = this.folderCreated.get(folderNumber).getNumberOfFile() - 1; indexOfAFile >= 0; indexOfAFile--){
+			this.folderCreated.get(folderNumber).deleteFile(this.folderCreated.get(folderNumber).getFile().get(indexOfAFile));
 		}
 		
 		this.folderCreated.remove(folderNumber);
