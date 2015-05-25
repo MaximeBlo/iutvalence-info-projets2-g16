@@ -11,18 +11,6 @@ public class Editor {
 	 * file loaded and displayed in the editor
 	 */
 	private AFile fileLoaded;
-	/**
-	 * editor's position in the window
-	 */
-	private Position position;
-	/**
-	 * editor's width
-	 */
-	private int width;
-	/**
-	 * editor's height
-	 */
-	private int height;
 	
 	/**
 	 * Create an editor
@@ -30,10 +18,7 @@ public class Editor {
 	 * @param width : editor's height
 	 * @param height : editor's width
 	 */
-	public Editor(Position position, int width, int height){
-		this.position = position;
-		this.height = height;
-		this.width = width;
+	public Editor(){
 	}
 	
 	/**

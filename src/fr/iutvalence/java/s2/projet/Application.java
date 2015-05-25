@@ -17,7 +17,7 @@ public class Application{
 	*/
 	public static void main(String args[]){
 		
-		Editor editor = new Editor(new Position(20,20),20,20);
+		Editor editor = new Editor();
 		TreeView treeView = new TreeView();
 		Generator gen = new Generator(new Attribut(25,true,true,true));
 		
