@@ -100,10 +100,10 @@ public class AFile {
 	
 	
 	/**
-	 * To write in a file.
+	 * To rewrite in a file.
 	 * @param text the text to write
 	 */
-	public void write(String text){
+	public void reWrite(String text){
 		
 		FileWriter fileWrite = null;
 		try {
@@ -117,17 +117,20 @@ public class AFile {
 	}
 	
 	/**
-	 * @deprecated
+	 * To write in a file.
+	 * @param text the text to write
 	 */
-	public void fileInitialization(){
+	public void write(String text){
+		
 		FileWriter fileWrite = null;
 		try {
-			fileWrite = new FileWriter(this.file);
-			fileWrite.write(String.valueOf(this.parentFolder.getName()+ "\n"));
+			fileWrite = new FileWriter(this.file,false);
+			fileWrite.write(text);
 			fileWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	

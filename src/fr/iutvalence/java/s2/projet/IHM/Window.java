@@ -5,8 +5,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import javax.swing.JSplitPane;
+
+import fr.iutvalence.java.s2.projet.Application;
+import fr.iutvalence.java.s2.projet.TreeView;
 
 /**
 * Window's class (graphical aspect)
@@ -15,6 +17,11 @@ import javax.swing.JSplitPane;
 public class Window extends JFrame
 {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	JMenuBar menu;
 	
 	JMenu file;
@@ -28,13 +35,17 @@ public class Window extends JFrame
 	JPanel pan;
 	
 	JSplitPane splitSpanTop;
+	
+	Application currentApplication;
 	/**
 	 * window's contructor
 	 * @param name the window's name
 	 * @param width the window's width
 	 * @param heigth the window's height
 	 */
-	public Window(){
+	public Window(Application application){
+		
+		this.currentApplication = application;
 
 		this.setTitle("Password Saver");
 		this.setSize(1300, 700);

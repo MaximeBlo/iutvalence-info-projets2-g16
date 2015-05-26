@@ -90,10 +90,26 @@ public class TreeView {
 	
 	
 	/**
+	 * Create new folder.
+	 * @param name the name of the folder
+	 */
+	public void createFolder(){
+		
+		System.out.println("What is the name of the folder? \n");
+		Scanner nameF = new Scanner(System.in);
+		String name = nameF.nextLine();
+		
+		this.folderCreated.add(new Folder(name));
+		this.numberOfFolders++;
+	}
+	
+	
+	/**
 	 * Add folder.
 	 * @param name the name of the folder
 	 */
 	public void addFolder(String name){
+		
 		this.folderCreated.add(new Folder(name));
 		this.numberOfFolders++;
 	}
