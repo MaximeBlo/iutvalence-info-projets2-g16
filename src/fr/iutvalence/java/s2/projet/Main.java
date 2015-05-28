@@ -14,6 +14,7 @@ public class Main {
 			currentApplication = new Application();
 			Scanner choiceSwitch;
 			
+			//GeneratorOptionSelection gen = new GeneratorOptionSelection();
 			Window application = new Window(currentApplication);
 			//System.out.println(gen.generer());
 			
@@ -54,7 +55,7 @@ public class Main {
 						currentApplication.createFile();
 						break;
 					case 3:
-						System.out.println(currentApplication.generatePassword());
+						System.out.println(currentApplication.generatePassword(new Attribut(10,true,true,true)));
 						break;
 					case 4:
 						System.out.println(currentApplication.getRepresentationOfTreeView());

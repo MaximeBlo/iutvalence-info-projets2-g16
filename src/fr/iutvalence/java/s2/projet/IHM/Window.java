@@ -1,5 +1,8 @@
 package fr.iutvalence.java.s2.projet.IHM;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -14,7 +17,7 @@ import fr.iutvalence.java.s2.projet.TreeView;
 * Window's class (graphical aspect)
 * @author MaximeBlo
 */
-public class Window extends JFrame
+public class Window extends JFrame implements ActionListener
 {
 	
 	/**
@@ -22,21 +25,24 @@ public class Window extends JFrame
 	 */
 	private static final long serialVersionUID = 1L;
 
-	JMenuBar menu;
+	private JMenuBar menu;
 	
-	JMenu file;
+	private JMenu file;
 	
-	JMenu folder;
+	private JMenu folder;
 	
-	JMenu password;
+	private JMenu password;
 	
-	JMenu save;
+	private JMenu save;
 	
-	JPanel pan;
+	private JPanel pan;
 	
-	JSplitPane splitSpanTop;
+	private JSplitPane splitSpanTop;
 	
-	Application currentApplication;
+	private JMenuItem createFolder;
+	private JMenuItem generatePassword;
+	
+	private Application currentApplication;
 	/**
 	 * window's contructor
 	 * @param name the window's name
@@ -64,7 +70,7 @@ public class Window extends JFrame
 	    this.splitSpanTop = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 	    
 	    this.splitSpanTop.setDividerLocation(50);
-	    this.splitSpanTop.enable(false);
+	    this.splitSpanTop.setEnabled(false);
 	    this.splitSpanTop.setDividerSize(0);
 	    
 	    this.splitSpanTop.setTopComponent(menu);
@@ -96,7 +102,9 @@ public class Window extends JFrame
 
 
 	private void buildMenuPassword() {
-		this.password.add(new JMenuItem("Generate password"));
+		this.generatePassword = new JMenuItem("Generate password");
+		this.generatePassword.addActionListener(this);
+		this.password.add(this.generatePassword);
 	}
 
 
@@ -112,7 +120,9 @@ public class Window extends JFrame
 	
 	
 	private void buildMenuFolder() {
-		this.folder.add(new JMenuItem("Create folder"));
+		this.createFolder = new JMenuItem("Create folder");
+		this.createFolder.addActionListener(this);
+		this.folder.add(createFolder);
 	    this.folder.add(new JMenuItem("Rename folder"));
 	    this.folder.add(new JMenuItem("Delete folder"));
 	}
@@ -122,6 +132,18 @@ public class Window extends JFrame
 		this.file.add(new JMenuItem("Create File"));
 	    this.file.add(new JMenuItem("Rename File"));
 	    this.file.add(new JMenuItem("Delete File"));
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object source=e.getSource();
+        
+        if  (source== this.createFolder){
+        	this.currentApplication.createFolder();
+        }else if(source == this.generatePassword){
+        	GeneratorOptionSelection gen = new GeneratorOptionSelection(this.currentApplication);
+        }
 	}
 	
 

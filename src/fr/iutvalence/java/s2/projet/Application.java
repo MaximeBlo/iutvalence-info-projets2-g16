@@ -17,7 +17,6 @@ public class Application{
 	public Application() {
 		editor = new Editor();
 	    treeView = new TreeView();
-		gen = new Generator(new Attribut(10,true,true,true));
 	}
 	
 	
@@ -29,7 +28,8 @@ public class Application{
 		this.treeView.createFile();
 	}
 	
-	public String generatePassword(){
+	public String generatePassword(Attribut attribut){
+		gen = new Generator(attribut);
 		return gen.generer();
 	}
 	
