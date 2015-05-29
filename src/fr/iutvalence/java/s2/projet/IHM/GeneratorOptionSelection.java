@@ -101,7 +101,7 @@ public class GeneratorOptionSelection extends JFrame implements ActionListener, 
 			Object source = e.getSource();
 			
 			if(source == this.check){
-				this.currentApplication.generatePassword(new Attribut(10,this.special,this.upper,this.numb));
+				this.generatedPassword.setText(this.currentApplication.generatePassword(new Attribut(10,this.special,this.upper,this.numb)));
 			}
 			
 		}
@@ -112,25 +112,25 @@ public class GeneratorOptionSelection extends JFrame implements ActionListener, 
 			
 			if(source == this.number){
 				if(e.getStateChange() == ItemEvent.DESELECTED){
-					this.numb = true;
-				}else{
 					this.numb = false;
+				}else{
+					this.numb = true;
 				}
 			}
 			
 			if(source == this.upperCase){
 				if(e.getStateChange() == ItemEvent.DESELECTED){
-					this.upper = true;
-				}else{
 					this.upper = false;
+				}else{
+					this.upper = true;
 				}
 			}
 			
 			if(source == this.specialChar){
 				if(e.getStateChange() == ItemEvent.DESELECTED){
-					this.special = true;
-				}else{
 					this.special = false;
+				}else{
+					this.special = true;
 				}
 			}
 			
