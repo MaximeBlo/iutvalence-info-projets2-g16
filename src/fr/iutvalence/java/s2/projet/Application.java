@@ -1,5 +1,6 @@
 package fr.iutvalence.java.s2.projet;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import fr.iutvalence.java.s2.projet.IHM.Window;
@@ -80,4 +81,11 @@ public class Application{
 		treeView.deleteFolder(treeView.getFolder(nameofFolderToDelete));
 	}
 	
+	public int getNumberOfFolder(){
+		return this.treeView.getNumberOfFolder();	
+	}
+	
+	public ArrayList<Folder> getFolders(){
+		return this.treeView.getFolder();
+	}
 }

@@ -223,6 +223,10 @@ public class TreeView {
 			e.printStackTrace();
 		}
 	}
+	
+	public int getNumberOfFolder(){
+		return this.numberOfFolders;
+	}
 
 	
 }

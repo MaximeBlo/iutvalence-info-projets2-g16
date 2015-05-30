@@ -9,6 +9,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 import fr.iutvalence.java.s2.projet.Application;
 import fr.iutvalence.java.s2.projet.TreeView;
@@ -42,6 +44,11 @@ public class Window extends JFrame implements ActionListener
 	private JMenuItem createFolder;
 	private JMenuItem generatePassword;
 	
+	private JTree treeView;
+	
+	DefaultMutableTreeNode racine;
+	DefaultMutableTreeNode[] element;
+	
 	private Application currentApplication;
 	/**
 	 * window's contructor
@@ -63,9 +70,13 @@ public class Window extends JFrame implements ActionListener
 
 	    this.buildMenu();
 	    
-	    
+	    this.treeView = new JTree();
 	    
 	    this.pan = new JPanel();
+	    
+	    this.buildJTree();
+	    
+	    this.pan.add(this.treeView);
 	    
 	    this.splitSpanTop = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 	    
@@ -82,6 +93,18 @@ public class Window extends JFrame implements ActionListener
 	}
 	
 	
+	private void buildJTree() {
+		
+		this.element = new DefaultMutableTreeNode[this.currentApplication.getNumberOfFolder()];
+		for(int numberOfFolder = 0; numberOfFolder < this.element.length;numberOfFolder++){
+			this.element[numberOfFolder] = new DefaultMutableTreeNode(this.currentApplication.getFolders().get(numberOfFolder).getName());
+		}
+		this.racine = new DefaultMutableTreeNode("/");
+		this.treeView = new JTree(this.racine);	
+		
+	}
+
+
 	private void buildMenuItem() {
 		this.file = new JMenu("File");
 	    this.folder = new JMenu("Folder");
