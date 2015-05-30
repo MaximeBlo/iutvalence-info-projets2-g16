@@ -34,6 +34,8 @@ public class GeneratorOptionSelection extends JFrame implements ActionListener, 
 		private JButton check;
 		private JTextField generatedPassword;
 		private Application currentApplication;
+		private JTextField length;
+		private JSplitPane lengthPassword;
 		private boolean upper;
 		private boolean special;
 		private boolean numb;
@@ -68,10 +70,22 @@ public class GeneratorOptionSelection extends JFrame implements ActionListener, 
 			this.upperCase = new JCheckBox("UpperCase");
 			this.specialChar = new JCheckBox("Special Character (',/,-,(,) ...) ");
 			this.number = new JCheckBox("Number");
+
+			
+			
+			this.length = new JTextField();
+			this.lengthPassword = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+			
+			this.lengthPassword.setBottomComponent(this.length);
+			this.lengthPassword.setTopComponent(new JLabel("Length of the password:"));
+			this.lengthPassword.setDividerSize(0);
+			this.lengthPassword.setDividerLocation(200);
 			
 			this.upperCase.addItemListener(this);
 			this.specialChar.addItemListener(this);
 			this.number.addItemListener(this);
+			
+	
 			
 			this.mainSplitSpan.setBottomComponent(this.secondSplitPan);
 			this.mainSplitSpan.setTopComponent(this.description);
@@ -91,6 +105,7 @@ public class GeneratorOptionSelection extends JFrame implements ActionListener, 
 			this.optionPanel.add(this.upperCase);
 			this.optionPanel.add(this.specialChar);
 			this.optionPanel.add(this.number);
+			this.optionPanel.add(this.lengthPassword);
 			
 			this.getContentPane().add(this.mainSplitSpan);
 			this.setVisible(true);
@@ -101,7 +116,7 @@ public class GeneratorOptionSelection extends JFrame implements ActionListener, 
 			Object source = e.getSource();
 			
 			if(source == this.check){
-				this.generatedPassword.setText(this.currentApplication.generatePassword(new Attribut(10,this.special,this.upper,this.numb)));
+				this.generatedPassword.setText(this.currentApplication.generatePassword(new Attribut(Integer.parseInt(this.length.getText()),this.special,this.upper,this.numb)));
 			}
 			
 		}
