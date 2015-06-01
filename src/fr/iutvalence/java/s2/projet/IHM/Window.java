@@ -8,6 +8,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -28,29 +29,83 @@ public class Window extends JFrame implements ActionListener
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The menu of the application.
+	 */
 	private JMenuBar menu;
 	
+	/**
+	 * The menu file.
+	 */
 	private JMenu file;
 	
+	/**
+	 * The menu folder.
+	 */
 	private JMenu folder;
 	
+	/**
+	 * The menu password.
+	 */
 	private JMenu password;
 	
+	/**
+	 * The menu save.
+	 */
 	private JMenu save;
 	
+	/**
+	 * The panel who contain the JTree.
+	 */
 	private JPanel pan;
 	
+	/**
+	 * The scrollpan who contain the JTree and allow it to scroll down.
+	 */
+	private JScrollPane treeViewScrollPan;
+	
+	/**
+	 * The first separation of the menu and the application.
+	 */
 	private JSplitPane splitSpanTop;
 	
+	/**
+	 * The second separation of the JTree and the editor.
+	 */
+	private JSplitPane splitSpanApp;
+	
+	/**
+	 * The create folder item of the menu.
+	 */
 	private JMenuItem createFolder;
+	
+	/**
+	 * The generate password item of the menu.
+	 */
 	private JMenuItem generatePassword;
 	
+	/**
+	 * The Jtree of the app.
+	 */
 	private JTree treeView;
 	
+	/**
+	 * The source of the Jtree.
+	 */
 	DefaultMutableTreeNode racine;
+	/**
+	 * Folders to place in the JTree.
+	 */
 	DefaultMutableTreeNode[] elementFolder;
+	/**
+	 * Files to place in the JTree.
+	 */
 	DefaultMutableTreeNode elementFile;
 	
+	
+	/**
+	 * The application launch.
+	 */
 	private Application currentApplication;
 	/**
 	 * window's contructor
@@ -76,12 +131,15 @@ public class Window extends JFrame implements ActionListener
 	    
 	    this.pan = new JPanel();
 	    
+	    
 	    this.racine = new DefaultMutableTreeNode("/");
 	    
 	    this.buildJTree();
 	    this.treeView = new JTree(this.racine);	
 	    
-	    this.pan.add(this.treeView);
+	    this.treeViewScrollPan = new JScrollPane(this.treeView);
+	    
+	    this.pan.add(this.treeViewScrollPan);
 	    
 	    this.splitSpanTop = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 	    
@@ -89,8 +147,17 @@ public class Window extends JFrame implements ActionListener
 	    this.splitSpanTop.setEnabled(false);
 	    this.splitSpanTop.setDividerSize(0);
 	    
-	    this.splitSpanTop.setTopComponent(menu);
-	    this.splitSpanTop.setRightComponent(pan);
+	    this.splitSpanTop.setTopComponent(this.menu);
+	    
+	    this.splitSpanApp = new JSplitPane();
+	    
+	    this.splitSpanApp.setDividerSize(0);
+	    this.splitSpanApp.setEnabled(false);
+	    this.splitSpanApp.setDividerLocation(200);
+	    
+	    this.splitSpanApp.setTopComponent(this.pan);
+	    
+	    this.splitSpanTop.setRightComponent(this.splitSpanApp);
 	    
 	    this.getContentPane().add(this.splitSpanTop);
 	    
@@ -98,6 +165,9 @@ public class Window extends JFrame implements ActionListener
 	}
 	
 	
+	/**
+	 * Build and rebuild JTree.
+	 */
 	private void buildJTree() {
 		
 		this.elementFolder = new DefaultMutableTreeNode[this.currentApplication.getNumberOfFolder()];
@@ -107,7 +177,6 @@ public class Window extends JFrame implements ActionListener
 		for(int numberOfFolder = 0; numberOfFolder < this.elementFolder.length;numberOfFolder++){
 			
 			this.elementFolder[numberOfFolder] = new DefaultMutableTreeNode("Folder: " + this.currentApplication.getFolders().get(numberOfFolder).getName());
-			System.out.println(this.elementFolder[numberOfFolder]);
 			this.racine.add(this.elementFolder[numberOfFolder]);
 			
 			for(int numberOfFile = 0; numberOfFile < this.currentApplication.getFolders().get(numberOfFolder).getNumberOfFile(); numberOfFile++){
@@ -115,12 +184,13 @@ public class Window extends JFrame implements ActionListener
 				this.elementFolder[numberOfFolder].add(this.elementFile);
 			}
 		}
-		//((DefaultTreeModel) treeView.getModel()).nodeChanged(racine);
 		
 		
 	}
 
-
+	/**
+	 * Build the menuItem.
+	 */
 	private void buildMenuItem() {
 		this.file = new JMenu("File");
 	    this.folder = new JMenu("Folder");
@@ -134,12 +204,17 @@ public class Window extends JFrame implements ActionListener
 	}
 	
 	
+	/**
+	 * Build the save menu.
+	 */
 	private void buildMenuSave() {
 		this.save.add(new JMenuItem("Save all"));
 		
 	}
 
-
+	/**
+	 * Build the password menu.
+	 */
 	private void buildMenuPassword() {
 		this.generatePassword = new JMenuItem("Generate password");
 		this.generatePassword.addActionListener(this);
@@ -147,6 +222,9 @@ public class Window extends JFrame implements ActionListener
 	}
 
 
+	/**
+	 * Build the menu.
+	 */
 	private void buildMenu() {
 		
 		this.buildMenuItem();
@@ -158,6 +236,9 @@ public class Window extends JFrame implements ActionListener
 	}
 	
 	
+	/**
+	 * Build the folder menu.
+	 */
 	private void buildMenuFolder() {
 		this.createFolder = new JMenuItem("Create folder");
 		this.createFolder.addActionListener(this);
@@ -166,7 +247,9 @@ public class Window extends JFrame implements ActionListener
 	    this.folder.add(new JMenuItem("Delete folder"));
 	}
 	
-	
+	/**
+	 * Build the file menu.
+	 */
 	private void buildMenuFile() {
 		this.file.add(new JMenuItem("Create File"));
 	    this.file.add(new JMenuItem("Rename File"));
