@@ -42,13 +42,13 @@ public class Encryption {
 			if (stuffToEncryptIndex>=passphrase.length())
 				passphraseIndex=0;
 		    passphraseChar=passphrase.charAt(passphraseIndex);
-		    for (int lookingForTheChar=0;lookingForTheChar<94;lookingForTheChar++)
+		    for (int lookingForTheChar=0;lookingForTheChar<95;lookingForTheChar++)
 		    {
 		    	
 		    	if (cipher.getTable()[ASCII.toASCII(passphraseChar)-31][lookingForTheChar]==stuffToDecryptChar)
 		    	{
-		    		if (ASCII.toASCII(cipher.getAllChar()[lookingForTheChar])==0)
-		    			finalString += "AZE";
+		    		System.out.println(lookingForTheChar);
+		    		
 		    		finalString += cipher.getAllChar()[lookingForTheChar+1];
 		    		
 		    	}

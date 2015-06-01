@@ -16,7 +16,7 @@ public class Main {
 			
 			//GeneratorOptionSelection gen = new GeneratorOptionSelection();
 			//Window application = new Window(currentApplication);
-			new Encryption().Test("Relou, plein d'espace et tout mais il les supprimes tous, genre il en a rien a faire", "8khef5e6sz");
+			new Encryption().Test("Relou, plein d'espace et tout mais il les supprimes tous, genre il en a rien a faire!", "8khef5e6sz");
 			System.out.println(new VigenereCipher());
 			//System.out.println(gen.generer());
 			
