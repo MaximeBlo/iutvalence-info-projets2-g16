@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  * Class used as a file, containing String.
- * @author Tutur
+ * @author MaximeBlo
  *
  */
 public class AFile {

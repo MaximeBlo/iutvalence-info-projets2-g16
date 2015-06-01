@@ -1,7 +1,7 @@
 package fr.iutvalence.java.s2.projet;
 /**
  * Attribut.
- * @author Elisa
+ * @author MaximeBlo
  *
  */
 public class Attribut

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Class folder used to contain one or many files.
- * @author Tutur
+ * @author MaximeBlo
  *
  */
 public class Folder {
@@ -67,7 +67,7 @@ public class Folder {
 	
 	/**
 	* Return the number of file in the folder.
-	* @return numberOfFile  the number of file ine the folder
+	* @return numberOfFile  the number of file in the folder
 	*/
 	public int getNumberOfFile(){
 		return this.numberOfFile;

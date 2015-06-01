@@ -161,6 +161,11 @@ public class TreeView {
 		return this.folderCreated;
 	}
 	
+	/**
+	 * Get a folder with his name.
+	 * @param folderName the name of the folder searched
+	 * @return the folder searched.
+	 */
 	public Folder getFolder(String folderName){
 		Folder folderFind = null;
 		
@@ -224,6 +229,10 @@ public class TreeView {
 		}
 	}
 	
+	/**
+	 * Get the number of folder in the TreeView.
+	 * @return the number of folder.
+	 */
 	public int getNumberOfFolder(){
 		return this.numberOfFolders;
 	}
