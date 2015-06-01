@@ -76,7 +76,10 @@ public class Window extends JFrame implements ActionListener
 	    
 	    this.pan = new JPanel();
 	    
+	    this.racine = new DefaultMutableTreeNode("/");
+	    
 	    this.buildJTree();
+	    this.treeView = new JTree(this.racine);	
 	    
 	    this.pan.add(this.treeView);
 	    
@@ -98,8 +101,7 @@ public class Window extends JFrame implements ActionListener
 	private void buildJTree() {
 		
 		this.elementFolder = new DefaultMutableTreeNode[this.currentApplication.getNumberOfFolder()];
-		
-		this.racine = new DefaultMutableTreeNode("/");
+		this.racine.removeAllChildren();
 		
 		
 		for(int numberOfFolder = 0; numberOfFolder < this.elementFolder.length;numberOfFolder++){
@@ -113,8 +115,8 @@ public class Window extends JFrame implements ActionListener
 				this.elementFolder[numberOfFolder].add(this.elementFile);
 			}
 		}
+		//((DefaultTreeModel) treeView.getModel()).nodeChanged(racine);
 		
-		this.treeView = new JTree(this.racine);	
 		
 	}
 
@@ -179,7 +181,7 @@ public class Window extends JFrame implements ActionListener
         if  (source== this.createFolder){
         	this.currentApplication.createFolder();
         	this.buildJTree();
-        	this.treeView.repaint();
+        	this.treeView.updateUI();
         }else if(source == this.generatePassword){
         	GeneratorOptionSelection gen = new GeneratorOptionSelection(this.currentApplication);
         }
