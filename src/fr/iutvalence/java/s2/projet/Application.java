@@ -23,10 +23,12 @@ public class Application{
 	
 	public void createFolder(){
 		this.treeView.createFolder();
+		this.saveTreeView();
 	}
 	
 	public void createFile(){
 		this.treeView.createFile();
+		this.saveTreeView();
 	}
 	
 	public String generatePassword(Attribut attribut){

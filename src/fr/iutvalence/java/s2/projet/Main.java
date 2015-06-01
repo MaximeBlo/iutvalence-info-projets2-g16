@@ -31,7 +31,7 @@ public class Main {
 			//System.out.println(treeView);
 			//System.out.println(treeView.getFolder()[0].getFile()[0].read());
 			
-			int choix = 0;
+			/*int choix = 0;
 			do{
 				System.out.println("What would you do? \n");
 				System.out.println("1. Create a folder");
@@ -81,6 +81,6 @@ public class Main {
 			}while(choix != 0);
 			
 			choiceSwitch.close();
-			
+			*/
 		}
 }

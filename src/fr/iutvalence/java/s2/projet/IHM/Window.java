@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 import fr.iutvalence.java.s2.projet.Application;
 import fr.iutvalence.java.s2.projet.TreeView;
@@ -47,7 +48,8 @@ public class Window extends JFrame implements ActionListener
 	private JTree treeView;
 	
 	DefaultMutableTreeNode racine;
-	DefaultMutableTreeNode[] element;
+	DefaultMutableTreeNode[] elementFolder;
+	DefaultMutableTreeNode elementFile;
 	
 	private Application currentApplication;
 	/**
@@ -95,11 +97,23 @@ public class Window extends JFrame implements ActionListener
 	
 	private void buildJTree() {
 		
-		this.element = new DefaultMutableTreeNode[this.currentApplication.getNumberOfFolder()];
-		for(int numberOfFolder = 0; numberOfFolder < this.element.length;numberOfFolder++){
-			this.element[numberOfFolder] = new DefaultMutableTreeNode(this.currentApplication.getFolders().get(numberOfFolder).getName());
-		}
+		this.elementFolder = new DefaultMutableTreeNode[this.currentApplication.getNumberOfFolder()];
+		
 		this.racine = new DefaultMutableTreeNode("/");
+		
+		
+		for(int numberOfFolder = 0; numberOfFolder < this.elementFolder.length;numberOfFolder++){
+			
+			this.elementFolder[numberOfFolder] = new DefaultMutableTreeNode("Folder: " + this.currentApplication.getFolders().get(numberOfFolder).getName());
+			System.out.println(this.elementFolder[numberOfFolder]);
+			this.racine.add(this.elementFolder[numberOfFolder]);
+			
+			for(int numberOfFile = 0; numberOfFile < this.currentApplication.getFolders().get(numberOfFolder).getNumberOfFile(); numberOfFile++){
+				this.elementFile = new DefaultMutableTreeNode(this.currentApplication.getFolders().get(numberOfFolder).getFile().get(numberOfFile));
+				this.elementFolder[numberOfFolder].add(this.elementFile);
+			}
+		}
+		
 		this.treeView = new JTree(this.racine);	
 		
 	}
@@ -164,6 +178,8 @@ public class Window extends JFrame implements ActionListener
         
         if  (source== this.createFolder){
         	this.currentApplication.createFolder();
+        	this.buildJTree();
+        	this.treeView.repaint();
         }else if(source == this.generatePassword){
         	GeneratorOptionSelection gen = new GeneratorOptionSelection(this.currentApplication);
         }
