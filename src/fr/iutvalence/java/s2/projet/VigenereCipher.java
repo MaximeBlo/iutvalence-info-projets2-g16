@@ -11,7 +11,7 @@ public class VigenereCipher {
 		
 		for(int fillingAllChar=0;fillingAllChar<=94;fillingAllChar++)
 		{
-			this.allChar[fillingAllChar]=ASCII.toChar(fillingAllChar+32);
+			this.allChar[fillingAllChar]=(char)(fillingAllChar+32);
 		}
 		
 		

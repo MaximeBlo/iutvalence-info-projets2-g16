@@ -22,7 +22,7 @@ public class Encryption {
 			if (stuffToEncryptIndex>=passphrase.length())
 				passphraseIndex=0;
 		    passphraseChar=passphrase.charAt(passphraseIndex);
-		    finalString += cipher.getTable()[ASCII.toASCII(passphraseChar)-32][ASCII.toASCII(stuffToEncryptChar)-32];
+		    finalString += cipher.getTable()[(int)(passphraseChar)-32][(int)(stuffToEncryptChar)-32];
 		    passphraseIndex++;
 		}
 		 
@@ -45,7 +45,7 @@ public class Encryption {
 		    for (int lookingForTheChar=0;lookingForTheChar<95;lookingForTheChar++)
 		    {
 		    	
-		    	if (cipher.getTable()[ASCII.toASCII(passphraseChar)-31][lookingForTheChar]==stuffToDecryptChar)
+		    	if (cipher.getTable()[(int)(passphraseChar)-31][lookingForTheChar]==stuffToDecryptChar)
 		    	{
 		    		System.out.println(lookingForTheChar);
 		    		

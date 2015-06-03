@@ -53,14 +53,8 @@ public class Application{
 		treeView.getFolder(nameFolder).getFile(nameFile).reWrite(text + "\n");
 	}
 	
-	public String readFile(){
-		System.out.println("What is the name of the folder? \n");
-		Scanner nameF = new Scanner(System.in);
-		String nameFold = nameF.nextLine();
-		System.out.println("What is the name of the file? \n");
-		String nameFil = nameF.nextLine();
-		
-		return treeView.getFolder(nameFold).getFile(nameFil).read();
+	public String readFile(String folder, String file){
+		return treeView.getFolder(folder).getFile(file).read();
 	}
 	
 	public void saveTreeView(){

@@ -2,7 +2,10 @@ package fr.iutvalence.java.s2.projet.IHM;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -10,18 +13,18 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 
 import fr.iutvalence.java.s2.projet.Application;
-import fr.iutvalence.java.s2.projet.TreeView;
 
 /**
 * Window's class (graphical aspect)
 * @author MaximeBlo
 */
-public class Window extends JFrame implements ActionListener
+public class Window extends JFrame implements ActionListener, MouseListener
 {
 	
 	/**
@@ -92,16 +95,21 @@ public class Window extends JFrame implements ActionListener
 	/**
 	 * The source of the Jtree.
 	 */
-	DefaultMutableTreeNode racine;
+	private DefaultMutableTreeNode racine;
 	/**
 	 * Folders to place in the JTree.
 	 */
-	DefaultMutableTreeNode[] elementFolder;
+	private DefaultMutableTreeNode[] elementFolder;
 	/**
 	 * Files to place in the JTree.
 	 */
-	DefaultMutableTreeNode elementFile;
+	private DefaultMutableTreeNode elementFile;
 	
+	private JTextField editor;
+	
+	private JSplitPane editorSplitPan;
+	
+	private JButton sauvegarde;
 	
 	/**
 	 * The application launch.
@@ -136,6 +144,7 @@ public class Window extends JFrame implements ActionListener
 	    
 	    this.buildJTree();
 	    this.treeView = new JTree(this.racine);	
+	    this.treeView.addMouseListener(this);
 	    
 	    this.treeViewScrollPan = new JScrollPane(this.treeView);
 	    
@@ -157,7 +166,21 @@ public class Window extends JFrame implements ActionListener
 	    
 	    this.splitSpanApp.setTopComponent(this.pan);
 	    
-	    this.splitSpanTop.setRightComponent(this.splitSpanApp);
+	    this.editor = new JTextField();
+	    this.editorSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+	    
+	    this.editorSplitPan.setTopComponent(this.editor);
+	    
+	    this.sauvegarde = new JButton();
+	    
+	    this.sauvegarde.setText("Sauvegarde");
+	    this.sauvegarde.addActionListener(this);
+	    
+	    this.editorSplitPan.setBottomComponent(this.sauvegarde);
+	    
+	    this.splitSpanApp.setBottomComponent(this.editorSplitPan);
+	    
+	    this.splitSpanTop.setBottomComponent(this.splitSpanApp);
 	    
 	    this.getContentPane().add(this.splitSpanTop);
 	    
@@ -180,7 +203,7 @@ public class Window extends JFrame implements ActionListener
 			this.racine.add(this.elementFolder[numberOfFolder]);
 			
 			for(int numberOfFile = 0; numberOfFile < this.currentApplication.getFolders().get(numberOfFolder).getNumberOfFile(); numberOfFile++){
-				this.elementFile = new DefaultMutableTreeNode(this.currentApplication.getFolders().get(numberOfFolder).getFile().get(numberOfFile));
+				this.elementFile = new DefaultMutableTreeNode(this.currentApplication.getFolders().get(numberOfFolder).getName() + " : " + this.currentApplication.getFolders().get(numberOfFolder).getFile().get(numberOfFile));
 				this.elementFolder[numberOfFolder].add(this.elementFile);
 			}
 		}
@@ -267,7 +290,49 @@ public class Window extends JFrame implements ActionListener
         	this.treeView.updateUI();
         }else if(source == this.generatePassword){
         	GeneratorOptionSelection gen = new GeneratorOptionSelection(this.currentApplication);
+        }else if(source == this.sauvegarde){
+        	//TODO write in file
+        	
         }
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		TreePath tp = this.treeView.getPathForLocation(e.getX(), e.getY());
+	    if (tp != null && tp.getPathCount() > 2)
+	      this.editor.setText(this.currentApplication.readFile(tp.getParentPath().toString().substring(12,15),tp.toString().substring(23).substring(0, tp.toString().substring(23).indexOf(']'))));
+	    else
+	    	this.editor.setText("");
+	  }
+		
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
