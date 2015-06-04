@@ -13,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -105,7 +106,7 @@ public class Window extends JFrame implements ActionListener, MouseListener
 	 */
 	private DefaultMutableTreeNode elementFile;
 	
-	private JTextField editor;
+	private JTextArea editor;
 	
 	private JSplitPane editorSplitPan;
 	
@@ -172,7 +173,9 @@ public class Window extends JFrame implements ActionListener, MouseListener
 	    
 	    this.splitSpanApp.setTopComponent(this.pan);
 	    
-	    this.editor = new JTextField();
+	    this.editor = new JTextArea();
+	   
+	    
 	    this.editorSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 	    this.editorSplitPan.setEnabled(false);
 	    this.editorSplitPan.setDividerLocation(500);

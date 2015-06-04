@@ -39,7 +39,7 @@ public class Application{
 	}
 	
 	public void writeInFile(String folder, String file, String text){
-		treeView.getFolder(folder).getFile(file).reWrite(text + "\n");
+		treeView.getFolder(folder).getFile(file).write(text);
 	}
 	
 	public String readFile(String folder, String file){

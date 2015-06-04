@@ -87,7 +87,6 @@ public class AFile {
 			fileRead = new FileReader(this.file);
 			while(fileRead.ready()){
 				text += (char)fileRead.read();
-				text += "\n";
 			}
 			fileRead.close();
 		} catch (FileNotFoundException e) {
