@@ -32,6 +32,8 @@ public class AFile {
 	 */
 	private Folder parentFolder;
 	
+	private Encryption encryption = new Encryption();
+	
 	/**
 	 * Create a file
 	 * @param name : file's name
@@ -76,11 +78,12 @@ public class AFile {
 		return this.numberOfChar;
 	}
 	
+	
 	/**
 	 * Read the file.
 	 * @return String of the file
 	 */
-	public String read(){
+	public String read(String passphrase){
 		String text ="";
 		FileReader fileRead = null;
 		try {
@@ -95,7 +98,7 @@ public class AFile {
 			e.printStackTrace();
 		}
 		
-		return text;	
+		return encryption.decrypt(text, passphrase);	
 	}
 	
 	
@@ -103,12 +106,12 @@ public class AFile {
 	 * To rewrite in a file.
 	 * @param text the text to write
 	 */
-	public void reWrite(String text){
+	public void reWrite(String text, String passphrase){
 		
 		FileWriter fileWrite = null;
 		try {
 			fileWrite = new FileWriter(this.file,true);
-			fileWrite.write(text);
+			fileWrite.write(encryption.encrypt(text, passphrase));
 			fileWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -120,12 +123,12 @@ public class AFile {
 	 * To write in a file.
 	 * @param text the text to write
 	 */
-	public void write(String text){
+	public void write(String text, String passphrase){
 		
 		FileWriter fileWrite = null;
 		try {
 			fileWrite = new FileWriter(this.file,false);
-			fileWrite.write(text);
+			fileWrite.write(encryption.encrypt(text, passphrase));
 			fileWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();

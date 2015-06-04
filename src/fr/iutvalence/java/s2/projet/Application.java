@@ -1,5 +1,6 @@
 package fr.iutvalence.java.s2.projet;
 
+import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,6 +14,10 @@ public class Application{
 	
 	private TreeView treeView;
 	private Generator gen;
+	
+	//TODO J'EN AVAIS JUSTE BESOIN POUR QUE CA COMPIL
+	
+	private String passphrase="h";
 
 	public Application() {
 	    treeView = new TreeView();
@@ -39,11 +44,11 @@ public class Application{
 	}
 	
 	public void writeInFile(String folder, String file, String text){
-		treeView.getFolder(folder).getFile(file).write(text);
+		treeView.getFolder(folder).getFile(file).write(text,passphrase);
 	}
 	
 	public String readFile(String folder, String file){
-		return treeView.getFolder(folder).getFile(file).read();
+		return treeView.getFolder(folder).getFile(file).read(passphrase); //TODO C'ETAIT LA LE PROBLEME
 	}
 	
 	public void saveTreeView(){

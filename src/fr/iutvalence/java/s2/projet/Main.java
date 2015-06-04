@@ -13,11 +13,13 @@ public class Main {
 			
 			currentApplication = new Application();
 			Scanner choiceSwitch;
+
+			//TODO TROUVER UN MOYEN DE STOCKER LA PASSPHRASE QUELQUE PART MAIS QU'ELLE SE SUPPRIMER A LA FERMETURE
 			
 			//GeneratorOptionSelection gen = new GeneratorOptionSelection();
-			Window application = new Window(currentApplication);
-			/*new Encryption().Test("Relou, plein d'espace et tout mais il les supprimes tous, genre il en a rien a faire!", "8khef5e6sz");
-			System.out.println(new VigenereCipher());*/
+			//Window application = new Window(currentApplication);
+			new Encryption().Test(" !#$%&'()*+,-.0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~ÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûü", "5");
+			System.out.println(new VigenereCipher());
 			//System.out.println(gen.generer());
 			
 			//treeView.createFile();
