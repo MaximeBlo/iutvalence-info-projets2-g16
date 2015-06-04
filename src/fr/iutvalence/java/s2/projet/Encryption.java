@@ -22,7 +22,24 @@ public class Encryption {
 			if (stuffToEncryptIndex>=passphrase.length())
 				passphraseIndex=0;
 		    passphraseChar=passphrase.charAt(passphraseIndex);
-		    finalString += cipher.getTable()[(int)(passphraseChar)-32][(int)(stuffToEncryptChar)-32];
+		    if ((int)passphraseChar<=126){
+		    	if ((int)stuffToEncryptChar<=126){
+		    		finalString += cipher.getTable()[(int)(passphraseChar)-32][(int)(stuffToEncryptChar)-32];
+		    		}
+		    	else if ((int)stuffToEncryptChar>126){
+		    		finalString += cipher.getTable()[(int)(passphraseChar)-32][(int)(stuffToEncryptChar)-100];
+		    		}
+		    }
+		    else if ((int)passphraseChar>126){
+		    	if ((int)stuffToEncryptChar>126){
+		    		finalString += cipher.getTable()[(int)(passphraseChar)-100][(int)(stuffToEncryptChar)-100];
+		    		}
+		    	else if ((int)stuffToEncryptChar<=126){
+		    		finalString += cipher.getTable()[(int)(passphraseChar)-100][(int)(stuffToEncryptChar)-32];
+		    		}
+		    }
+		    
+		    
 		    passphraseIndex++;
 		}
 		 
@@ -42,20 +59,18 @@ public class Encryption {
 			if (stuffToEncryptIndex>=passphrase.length())
 				passphraseIndex=0;
 		    passphraseChar=passphrase.charAt(passphraseIndex);
-		    for (int lookingForTheChar=0;lookingForTheChar<95;lookingForTheChar++)
+		    for (int lookingForTheChar=0;lookingForTheChar<=VigenereCipher.ARRAY_SIZE;lookingForTheChar++)
 		    {
+		    	if ((int) passphraseChar<=126)
+			    	if (cipher.getTable()[(int)(passphraseChar)-31][lookingForTheChar]==stuffToDecryptChar)
+			    		if (lookingForTheChar==0)
+			    			finalString += cipher.getAllChar()[lookingForTheChar];
+			    		else
+			    			finalString += cipher.getAllChar()[lookingForTheChar+1];
 		    	
-		    	if (cipher.getTable()[(int)(passphraseChar)-31][lookingForTheChar]==stuffToDecryptChar)
-		    	{
-		    		System.out.println(lookingForTheChar);
-		    		
-		    		finalString += cipher.getAllChar()[lookingForTheChar+1];
-		    		
-		    	}
 		    }
 		    passphraseIndex++;
 		}
-		 
 		return finalString;
 	}
 	
@@ -69,6 +84,8 @@ public class Encryption {
 		System.out.println();
 		System.out.println(decrypt(bla, passphrase));
 		System.out.println();
+		System.out.println(cipher.getAllChar());
+		
 		
 	}
 	
