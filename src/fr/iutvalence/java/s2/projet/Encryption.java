@@ -63,10 +63,11 @@ public class Encryption {
 		    {
 		    	if ((int) passphraseChar<=126)
 			    	if (cipher.getTable()[(int)(passphraseChar)-31][lookingForTheChar]==stuffToDecryptChar)
-			    		if (lookingForTheChar==0)
 			    			finalString += cipher.getAllChar()[lookingForTheChar];
-			    		else
-			    			finalString += cipher.getAllChar()[lookingForTheChar+1];
+		    	
+		    	if ((int) passphraseChar>126)
+			    	if (cipher.getTable()[(int)(passphraseChar)-99][lookingForTheChar]==stuffToDecryptChar)
+			    			finalString += cipher.getAllChar()[lookingForTheChar];
 		    	
 		    }
 		    passphraseIndex++;
