@@ -111,6 +111,12 @@ public class Window extends JFrame implements ActionListener, MouseListener
 	
 	private JButton sauvegarde;
 	
+	private String currentFolder;
+	
+	private String currentFile;
+	
+	
+	
 	/**
 	 * The application launch.
 	 */
@@ -168,6 +174,9 @@ public class Window extends JFrame implements ActionListener, MouseListener
 	    
 	    this.editor = new JTextField();
 	    this.editorSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+	    this.editorSplitPan.setEnabled(false);
+	    this.editorSplitPan.setDividerLocation(500);
+	    this.editorSplitPan.setDividerSize(0);
 	    
 	    this.editorSplitPan.setTopComponent(this.editor);
 	    
@@ -290,8 +299,8 @@ public class Window extends JFrame implements ActionListener, MouseListener
         	this.treeView.updateUI();
         }else if(source == this.generatePassword){
         	GeneratorOptionSelection gen = new GeneratorOptionSelection(this.currentApplication);
-        }else if(source == this.sauvegarde){
-        	//TODO write in file
+        }else if(source == this.sauvegarde && this.currentFile != null){
+        	this.currentApplication.writeInFile(this.currentFolder, this.currentFile, this.editor.getText());
         	
         }
 	}
@@ -300,8 +309,12 @@ public class Window extends JFrame implements ActionListener, MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		TreePath tp = this.treeView.getPathForLocation(e.getX(), e.getY());
-	    if (tp != null && tp.getPathCount() > 2)
+	    if (tp != null && tp.getPathCount() > 2){
+	    	
 	      this.editor.setText(this.currentApplication.readFile(tp.getParentPath().toString().substring(12,15),tp.toString().substring(23).substring(0, tp.toString().substring(23).indexOf(']'))));
+	      this.currentFolder = tp.getParentPath().toString().substring(12,15);
+	      this.currentFile = tp.toString().substring(23).substring(0, tp.toString().substring(23).indexOf(']'));
+	}
 	    else
 	    	this.editor.setText("");
 	  }

@@ -11,12 +11,10 @@ import fr.iutvalence.java.s2.projet.IHM.Window;
 */
 public class Application{
 	
-	private Editor editor;
 	private TreeView treeView;
 	private Generator gen;
 
 	public Application() {
-		editor = new Editor();
 	    treeView = new TreeView();
 	}
 	
@@ -40,17 +38,8 @@ public class Application{
 		return this.treeView.toString();
 	}
 	
-	public void writeInFile(){
-		System.out.println("What is the name of the folder? \n");
-		Scanner nameF = new Scanner(System.in);
-		String nameFolder = nameF.nextLine();
-		System.out.println("What is the name of the file? \n");
-		String nameFile = nameF.nextLine();
-		System.out.println("What is the text to write? \n");
-		String text = new String();
-		text = nameF.nextLine();
-		
-		treeView.getFolder(nameFolder).getFile(nameFile).reWrite(text + "\n");
+	public void writeInFile(String folder, String file, String text){
+		treeView.getFolder(folder).getFile(file).reWrite(text + "\n");
 	}
 	
 	public String readFile(String folder, String file){
@@ -61,20 +50,12 @@ public class Application{
 		treeView.saveTreeView();
 	}
 	
-	public void deleteAFile(){
-		System.out.println("What is the name of the folder? \n");
-		Scanner nameF = new Scanner(System.in);
-		String nameofFolder = nameF.nextLine();
-		System.out.println("What is the name of the file? \n");
-		String nameofFile = nameF.nextLine();
-		treeView.getFolder(nameofFolder).deleteFile(treeView.getFolder(nameofFolder).getFile(nameofFile));
+	public void deleteAFile(String folder, String file){
+		treeView.getFolder(folder).deleteFile(treeView.getFolder(folder).getFile(file));
 	}
 	
-	public void deleteAFolder(){
-		System.out.println("What is the name of the folder? \n");
-		Scanner nameF = new Scanner(System.in);
-		String nameofFolderToDelete = nameF.nextLine();
-		treeView.deleteFolder(treeView.getFolder(nameofFolderToDelete));
+	public void deleteAFolder(String folder){
+		treeView.deleteFolder(treeView.getFolder(folder));
 	}
 	
 	public int getNumberOfFolder(){
