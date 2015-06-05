@@ -1,5 +1,6 @@
 package fr.iutvalence.java.s2.projet;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -14,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.JTree;
+import javax.swing.ScrollPaneLayout;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
@@ -122,6 +124,8 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		
 		this.currentWindow = window;
 		
+		this.setLayout(new BorderLayout());
+		
 		this.menu = new JMenuBar();
 
 	    this.buildMenu();
@@ -178,7 +182,7 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	    this.splitSpanApp.setBottomComponent(this.editorSplitPan);
 	    
 	    this.splitSpanTop.setBottomComponent(this.splitSpanApp);
-	    
+	   
 	    this.add(this.splitSpanTop);
 	    
 	    this.setVisible(true);
@@ -196,10 +200,10 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		
 		for(int numberOfFolder = 0; numberOfFolder < this.elementFolder.length;numberOfFolder++){
 			
-			if(this.currentApplication.getFolders().get(numberOfFolder).getName().length() < 10){
+			if(this.currentApplication.getFolders().get(numberOfFolder).getName().length() < 8){
 				this.elementFolder[numberOfFolder] = new DefaultMutableTreeNode("Folder: " + this.currentApplication.getFolders().get(numberOfFolder).getName());
 			}else{
-				this.elementFolder[numberOfFolder] = new DefaultMutableTreeNode("Folder: " + this.currentApplication.getFolders().get(numberOfFolder).getName().substring(0,  10));
+				this.elementFolder[numberOfFolder] = new DefaultMutableTreeNode("Folder: " + this.currentApplication.getFolders().get(numberOfFolder).getName().substring(0,  8)+ "...");
 			}
 			this.racine.add(this.elementFolder[numberOfFolder]);
 			

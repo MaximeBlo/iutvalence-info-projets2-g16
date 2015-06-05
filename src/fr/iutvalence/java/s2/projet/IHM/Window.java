@@ -1,9 +1,11 @@
 package fr.iutvalence.java.s2.projet.IHM;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.print.Book;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -35,10 +37,6 @@ public class Window extends JFrame
 	 */
 	private static final long serialVersionUID = 1L;
 
-
-	
-	
-	
 	/**
 	 * The application launch.
 	 */
@@ -47,6 +45,8 @@ public class Window extends JFrame
 	private MainIhm mainIhm;
 	
 	private IhmIdentification ihmPassword;
+	
+	private JPanel pan;
 	/**
 	 * window's contructor
 	 * @param name the window's name
@@ -63,12 +63,16 @@ public class Window extends JFrame
 		this.setLocationRelativeTo(null);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    
+	    this.pan = new JPanel();
+	    this.pan.setLayout(new BorderLayout());
+	    
 	    this.mainIhm = new MainIhm(this, this.currentApplication);
-	    this.mainIhm.setSize(1300, 700);
 	    
 	    this.ihmPassword = new IhmIdentification(this, this.currentApplication);
 	    
-	    this.getContentPane().add(this.ihmPassword);
+	    this.pan.add(this.ihmPassword);
+	    
+	    this.getContentPane().add(this.pan);
 	    
 	    this.setVisible(true);
 	}
@@ -80,5 +84,12 @@ public class Window extends JFrame
 	public IhmIdentification getIdentification(){
 		return this.ihmPassword;
 	}
+	
+	public void changeIhm(){
+		this.pan.removeAll();
+		this.pan.add(this.mainIhm);
+		this.pan.updateUI();
+	}
+	
 	
 }
