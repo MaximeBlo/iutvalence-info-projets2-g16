@@ -1,5 +1,9 @@
 package fr.iutvalence.java.s2.projet.IHM;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSplitPane;
@@ -7,7 +11,7 @@ import javax.swing.JTextField;
 
 import fr.iutvalence.java.s2.projet.Application;
 
-public class CreateFile extends JFrame{
+public class CreateFile extends JFrame implements ActionListener{
 	
 	private Application currentApplication;
 	
@@ -27,16 +31,35 @@ public class CreateFile extends JFrame{
 	
 	private JTextField folder;
 	
-	public CreateFile(Application application){
+	private JButton validate;
+	
+	private Window currentWindow;
+	
+	public CreateFile(Application application, Window window){
 		this.currentApplication = application;
 		
+		this.currentWindow = window;
+		
+		this.setTitle("Create a file");
+		this.setSize(400, 300);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
+		
 		this.frame = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		this.frame.setDividerSize(0);
+		this.frame.setEnabled(false);
 		
 		this.twoOptionSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		this.twoOptionSplitPan.setDividerSize(0);
+		this.twoOptionSplitPan.setEnabled(false);
 		
 		this.nameOfFileSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		this.nameOfFileSplitPan.setDividerSize(0);
+		this.nameOfFileSplitPan.setEnabled(false);
 		
 		this.nameOfFolderSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		this.nameOfFolderSplitPan.setDividerSize(0);
+		this.nameOfFolderSplitPan.setEnabled(false);
 		
 		this.nameOfFile = new JLabel("Name of file:");
 		
@@ -46,10 +69,35 @@ public class CreateFile extends JFrame{
 		
 		this.folder = new JTextField();
 		
+		this.validate = new JButton("Validate");
+		this.validate.addActionListener(this);
+		
 		this.nameOfFileSplitPan.setTopComponent(this.nameOfFile);
 		this.nameOfFileSplitPan.setBottomComponent(this.file);
 		
+		this.nameOfFolderSplitPan.setTopComponent(this.nameOfFolder);
+		this.nameOfFolderSplitPan.setBottomComponent(this.folder);
 		
+		this.twoOptionSplitPan.setTopComponent(this.nameOfFolderSplitPan);
+		this.twoOptionSplitPan.setBottomComponent(this.nameOfFileSplitPan);
+		
+		this.frame.setTopComponent(this.twoOptionSplitPan);
+		this.frame.setBottomComponent(this.validate);
+		
+		this.getContentPane().add(this.frame);
+		
+		this.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		
+		if(source == this.validate){
+			this.currentApplication.createFile(this.folder.getText(), this.file.getText());
+			this.currentWindow.getMainIhm().buildJTree();
+			this.dispose();
+		}
 		
 	}
 	

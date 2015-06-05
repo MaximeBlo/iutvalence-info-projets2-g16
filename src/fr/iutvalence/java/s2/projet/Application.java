@@ -23,14 +23,19 @@ public class Application{
 	    treeView = new TreeView();
 	}
 	
-	
-	public void createFolder(){
-		this.treeView.createFolder();
+	public void rename(String folder, String newFolder){
+		this.treeView.getFolder(folder).rename(newFolder);
 		this.saveTreeView();
 	}
 	
-	public void createFile(){
-		this.treeView.createFile();
+	
+	public void createFolder(String folder){
+		this.treeView.createFolder(folder);
+		this.saveTreeView();
+	}
+	
+	public void createFile(String folder, String file){
+		this.treeView.createFile(folder,file);
 		this.saveTreeView();
 	}
 	

@@ -68,18 +68,10 @@ public class TreeView {
 	 * Create a file.
 	 * @return true if create done and false if there is no folder with this name
 	 */
-	public boolean createFile(){
-		System.out.println(this + "\n\n\n");
-		
-		Scanner name = new Scanner(System.in);
-		System.out.println("Type the name of the folder");
-		String folderName = name.nextLine();
-		System.out.println("Type the name of the file");
-		String fileName = name.nextLine();
+	public boolean createFile(String folder, String file){
 		for(int numberOfFolder = 0; numberOfFolder < this.numberOfFolders; numberOfFolder++){
-			if(this.folderCreated.get(numberOfFolder).getName().equals(folderName)){
-				this.folderCreated.get(numberOfFolder).addFile(new AFile(fileName,this.getFolder(folderName)));
-				System.out.println("The file " + fileName + " has been created in the folder: " + folderName);
+			if(this.folderCreated.get(numberOfFolder).getName().equals(folder)){
+				this.folderCreated.get(numberOfFolder).addFile(new AFile(file,this.getFolder(folder)));
 				return true;
 			}
 		}
@@ -93,13 +85,8 @@ public class TreeView {
 	 * Create new folder.
 	 * @param name the name of the folder
 	 */
-	public void createFolder(){
-		
-		System.out.println("What is the name of the folder? \n");
-		Scanner nameF = new Scanner(System.in);
-		String name = nameF.nextLine();
-		
-		this.folderCreated.add(new Folder(name));
+	public void createFolder(String folder){
+		this.folderCreated.add(new Folder(folder));
 		this.numberOfFolders++;
 	}
 	
