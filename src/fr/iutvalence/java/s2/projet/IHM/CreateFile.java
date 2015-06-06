@@ -94,9 +94,17 @@ public class CreateFile extends JFrame implements ActionListener{
 		Object source = e.getSource();
 		
 		if(source == this.validate){
-			this.currentApplication.createFile(this.folder.getText(), this.file.getText());
-			this.currentWindow.getMainIhm().buildJTree();
-			this.dispose();
+			this.nameOfFolder.setText("Name of folder:");
+			this.nameOfFile.setText("Name of file:");
+			if(this.currentApplication.getTreeView().getFolder(this.folder.getText()) == null){
+				this.nameOfFolder.setText("There is no folder with this name, try another name: ");
+			}else if(this.currentApplication.getTreeView().getFolder(this.folder.getText()).getFile(this.file.getText()) != null){
+				this.nameOfFile.setText("This file already exist, try another name : ");
+			}else{
+				this.currentApplication.createFile(this.folder.getText(), this.file.getText());
+				this.currentWindow.getMainIhm().buildJTree();
+				this.dispose();
+			}
 		}
 		
 	}
