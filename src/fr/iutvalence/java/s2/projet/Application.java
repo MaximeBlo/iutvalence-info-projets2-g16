@@ -71,7 +71,7 @@ public class Application{
 	}
 	
 	public void savePassword(String password){
-		this.passwordSave.write("sdfnsjnfkndsqkjgdsqetyif55snko961sjhenjdsbgqbgg" + password, this.passphrase);
+		this.passwordSave.write(this.generatePassword(new Attribut(47, true, true, true)) + password, this.passphrase);
 	}
 	
 	public void writeInFile(String folder, String file, String text){
