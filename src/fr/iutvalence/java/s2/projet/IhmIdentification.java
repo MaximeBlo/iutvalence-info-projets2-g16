@@ -87,7 +87,8 @@ public class IhmIdentification extends JPanel implements ActionListener{
 			}else{
 				if(String.copyValueOf(this.password.getPassword()).equals(this.currentApplication.getPasswordFile().read("h"))){
 					this.currentWindow.changeIhm();
-				}
+				}else
+					this.title.setText("Wrong password... Enter the right one:");
 			}
 		}
 		

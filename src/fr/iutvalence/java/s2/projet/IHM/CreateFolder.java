@@ -68,9 +68,14 @@ public class CreateFolder extends JFrame implements ActionListener {
 		Object source = e.getSource();
 		
 		if(source == this.validate){
-			this.currentApplication.createFolder(this.folder.getText());
-			this.currentWindow.getMainIhm().buildJTree();
-			this.dispose();
+			
+			if(this.currentApplication.getTreeView().getFolder(this.folder.getText()) != null){
+				this.nameOfFolder.setText("This folder already exist ... Type a new name of folder:");
+			}else{
+				this.currentApplication.createFolder(this.folder.getText());
+				this.currentWindow.getMainIhm().buildJTree();
+				this.dispose();
+			}
 		}
 		
 	}

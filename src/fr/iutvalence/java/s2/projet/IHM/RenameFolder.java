@@ -60,7 +60,7 @@ private Application currentApplication;
 		this.renameSplitPan.setDividerSize(0);
 		this.renameSplitPan.setEnabled(false);
 		
-		this.nameOfFolder = new JLabel("Name of file:");
+		this.nameOfFolder = new JLabel("New name of folder:");
 		
 		this.renameFolder = new JLabel("Name of folder:");
 		
@@ -93,7 +93,7 @@ private Application currentApplication;
 		Object source = e.getSource();
 		
 		if(source == this.validate){
-			this.currentApplication.rename(this.folder.getText(), this.rename.getText());
+			this.currentApplication.rename(this.rename.getText(), this.folder.getText());
 			this.currentWindow.getMainIhm().buildJTree();
 			this.dispose();
 		}

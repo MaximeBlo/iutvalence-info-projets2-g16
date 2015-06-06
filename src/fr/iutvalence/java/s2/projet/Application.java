@@ -105,4 +105,8 @@ public class Application{
 	public AFile getPasswordFile(){
 		return this.passwordSave;
 	}
+	
+	public TreeView getTreeView(){
+		return this.treeView;
+	}
 }
