@@ -64,14 +64,14 @@ public class Application{
 	}
 	
 	public boolean identification(String password){
-		if(password == this.passwordSave.read(this.passphrase)){
+		if(password.equals(this.passwordSave.read(this.passphrase).substring(47))){
 			return true;
 		}else
 			return false;
 	}
 	
 	public void savePassword(String password){
-		this.passwordSave.write(password, this.passphrase);
+		this.passwordSave.write("sdfnsjnfkndsqkjgdsqetyif55snko961sjhenjdsbgqbgg" + password, this.passphrase);
 	}
 	
 	public void writeInFile(String folder, String file, String text){

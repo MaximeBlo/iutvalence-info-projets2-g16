@@ -79,13 +79,13 @@ public class IhmIdentification extends JPanel implements ActionListener{
 		
 		if(source == this.validate){
 			
-			System.out.println(this.currentApplication.getPasswordFile().read("h"));
+			//System.out.println(this.currentApplication.getPasswordFile().read("h").substring(47));
 			
 			if(this.currentApplication.passwordIsVoid()){
 				this.currentApplication.savePassword(String.copyValueOf(this.password.getPassword()));
 				this.currentWindow.changeIhm();
 			}else{
-				if(String.copyValueOf(this.password.getPassword()).equals(this.currentApplication.getPasswordFile().read("h"))){
+				if(this.currentApplication.identification(String.copyValueOf(this.password.getPassword()))){
 					this.currentWindow.changeIhm();
 				}else
 					this.title.setText("Wrong password... Enter the right one:");
