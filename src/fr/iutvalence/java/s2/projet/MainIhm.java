@@ -205,15 +205,11 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		
 		for(int numberOfFolder = 0; numberOfFolder < this.elementFolder.length;numberOfFolder++){
 			
-			if(this.currentApplication.getFolders().get(numberOfFolder).getName().length() < 8){
-				this.elementFolder[numberOfFolder] = new DefaultMutableTreeNode("Folder: " + this.currentApplication.getFolders().get(numberOfFolder).getName() + ".");
-			}else{
-				this.elementFolder[numberOfFolder] = new DefaultMutableTreeNode("Folder: " + this.currentApplication.getFolders().get(numberOfFolder).getName().substring(0,  8)+ "...");
-			}
+			this.elementFolder[numberOfFolder] = new DefaultMutableTreeNode("Folder: " + this.currentApplication.getFolders().get(numberOfFolder).getName() + ".");
 			this.racine.add(this.elementFolder[numberOfFolder]);
 			
 			for(int numberOfFile = 0; numberOfFile < this.currentApplication.getFolders().get(numberOfFolder).getNumberOfFile(); numberOfFile++){
-				this.elementFile = new DefaultMutableTreeNode(this.currentApplication.getFolders().get(numberOfFolder).getName() + " | " + this.currentApplication.getFolders().get(numberOfFolder).getFile().get(numberOfFile));
+				this.elementFile = new DefaultMutableTreeNode("|" + this.currentApplication.getFolders().get(numberOfFolder).getFile().get(numberOfFile));
 				this.elementFolder[numberOfFolder].add(this.elementFile);
 			}
 		}
@@ -328,11 +324,11 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	public void mouseClicked(MouseEvent e) {
 		TreePath tp = this.treeView.getPathForLocation(e.getX(), e.getY());
 	    if (tp != null && tp.getPathCount() > 2){
-	    	//System.out.println(tp.toString().substring(tp.toString().indexOf('|') + 2).substring(0, tp.toString().substring(tp.toString().indexOf('|') + 2).indexOf(']')));
-	      this.editor.setText(this.currentApplication.readFile(tp.getParentPath().toString().substring(12,tp.getParentPath().toString().indexOf('.')),tp.toString().substring(tp.toString().indexOf('|') + 2).substring(0, tp.toString().substring(tp.toString().indexOf('|') + 2).indexOf(']'))));
-	      this.currentFolder = tp.getParentPath().toString().substring(12,tp.getParentPath().toString().indexOf('.'));
+	    	//System.out.println(tp.getParentPath().toString().substring(36));
+	      this.editor.setText(this.currentApplication.readFile(tp.getParentPath().toString().substring(36,tp.getParentPath().toString().indexOf('.')),tp.toString().substring(tp.toString().indexOf('|') + 1).substring(0, tp.toString().substring(tp.toString().indexOf('|') + 1).indexOf(']'))));
+	      this.currentFolder = tp.getParentPath().toString().substring(36,tp.getParentPath().toString().indexOf('.'));
 	      
-	      this.currentFile = tp.toString().substring(tp.toString().indexOf('|') + 2).substring(0, tp.toString().substring(tp.toString().indexOf('|') + 2).indexOf(']'));
+	      this.currentFile = tp.toString().substring(tp.toString().indexOf('|') + 1).substring(0, tp.toString().substring(tp.toString().indexOf('|') + 1).indexOf(']'));
 	}
 	    else
 	    	this.editor.setText("");
