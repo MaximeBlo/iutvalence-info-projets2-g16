@@ -101,6 +101,9 @@ public class CreateFile extends JFrame implements ActionListener{
 			}else if(this.currentApplication.getTreeView().getFolder(this.folder.getText()).getFile(this.file.getText()) != null){
 				this.nameOfFile.setText("This file already exist, try another name : ");
 			}else{
+				if(this.file.getText().length() > 8){
+					this.currentApplication.createFile(this.folder.getText(), this.file.getText().substring(0, 8));
+				}
 				this.currentApplication.createFile(this.folder.getText(), this.file.getText());
 				this.currentWindow.getMainIhm().buildJTree();
 				this.dispose();
