@@ -168,7 +168,7 @@ public class TreeView {
 	/**
 	 * Reconstruct the TreeView at the launch of application
 	 */
-	private void reconstructionTreeView(){
+	public void reconstructionTreeView(){
 		
 		FileReader recuperationFileSave = null;
 		String[] partsOfSave = new String[300];

@@ -1,6 +1,7 @@
 package fr.iutvalence.java.s2.projet;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -79,6 +80,8 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	
 	private JMenuItem createFile;
 	
+	private JMenuItem renameFile;
+	
 	private JMenuItem renameFolder;
 	
 	private JMenuItem changePassword;
@@ -137,7 +140,7 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	    this.pan = new JPanel();
 	    
 	    
-	    this.racine = new DefaultMutableTreeNode("/");
+	    this.racine = new DefaultMutableTreeNode("/ RACINE:  Your folders :");
 	    
 	    this.buildJTree();
 	    this.treeView = new JTree(this.racine);	
@@ -293,7 +296,10 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		this.createFile = new JMenuItem("Create File");
 		this.createFile.addActionListener(this);
 		this.file.add(this.createFile);
-	    this.file.add(new JMenuItem("Rename File"));
+		
+		this.renameFile = new JMenuItem("Rename File");
+		this.renameFile.addActionListener(this);
+	    this.file.add(this.renameFile);
 	    this.file.add(new JMenuItem("Delete File"));
 	}
 
@@ -303,15 +309,17 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		Object source=e.getSource();
         
         if  (source== this.createFolder){
-        	CreateFolder createFolder = new CreateFolder(this.currentApplication, this.currentWindow);
+        	new CreateFolder(this.currentApplication, this.currentWindow);
         }else if(source == this.generatePassword){
-        	GeneratorOptionSelection gen = new GeneratorOptionSelection(this.currentApplication);
+        	new GeneratorOptionSelection(this.currentApplication);
         }else if(source == this.sauvegarde && this.currentFile != null){
         	this.currentApplication.writeInFile(this.currentFolder, this.currentFile, this.editor.getText());
         }else if(source == this.createFile){
-        	CreateFile createFile = new CreateFile(this.currentApplication, this.currentWindow);
+        	new CreateFile(this.currentApplication, this.currentWindow);
         }else if(source == this.renameFolder){
-        	RenameFolder renameFolder = new RenameFolder(this.currentApplication, this.currentWindow);
+        	new RenameFolder(this.currentApplication, this.currentWindow);
+        }else if(source == this.renameFile){
+        	new RenameFile(this.currentApplication, this.currentWindow);
         }
 	}
 
@@ -322,7 +330,7 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	    if (tp != null && tp.getPathCount() > 2){
 	    	//System.out.println(tp.toString().substring(tp.toString().indexOf('|') + 2).substring(0, tp.toString().substring(tp.toString().indexOf('|') + 2).indexOf(']')));
 	      this.editor.setText(this.currentApplication.readFile(tp.getParentPath().toString().substring(12,tp.getParentPath().toString().indexOf('.')),tp.toString().substring(tp.toString().indexOf('|') + 2).substring(0, tp.toString().substring(tp.toString().indexOf('|') + 2).indexOf(']'))));
-	      this.currentFolder = tp.getParentPath().toString().substring(12,tp.getParentPath().toString().indexOf('.')-1);
+	      this.currentFolder = tp.getParentPath().toString().substring(12,tp.getParentPath().toString().indexOf('.'));
 	      
 	      this.currentFile = tp.toString().substring(tp.toString().indexOf('|') + 2).substring(0, tp.toString().substring(tp.toString().indexOf('|') + 2).indexOf(']'));
 	}

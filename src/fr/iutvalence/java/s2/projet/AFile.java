@@ -56,6 +56,7 @@ public class AFile {
 	public void rename(String name){
 		this.name = name;
 		this.file.renameTo(new File(name));
+		//this.parentFolder.addFile(this);
 	}
 
 
