@@ -1,7 +1,6 @@
 package fr.iutvalence.java.s2.projet;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -16,7 +15,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.JTree;
-import javax.swing.ScrollPaneLayout;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
@@ -26,8 +24,18 @@ import fr.iutvalence.java.s2.projet.IHM.GeneratorOptionSelection;
 import fr.iutvalence.java.s2.projet.IHM.RenameFolder;
 import fr.iutvalence.java.s2.projet.IHM.Window;
 
+/**
+ * IHM's main.
+ * @author Elisa
+ *
+ */
 public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	
+	/**
+	 * SerialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The menu of the application.
 	 */
@@ -123,6 +131,11 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	
 	private Application currentApplication;
 	
+	/**
+	 * Main IHM's constructor
+	 * @param window
+	 * @param app
+	 */
 	public MainIhm(Window window, Application app){
 		
 		this.currentApplication = app;

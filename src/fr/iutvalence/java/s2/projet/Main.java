@@ -1,14 +1,26 @@
 package fr.iutvalence.java.s2.projet;
 
-import java.util.Currency;
 import java.util.Scanner;
 
 import fr.iutvalence.java.s2.projet.IHM.Window;
 
+/**
+ * Main.
+ * @author Elisa
+ *
+ */
 public class Main {
 
+	//TODO Javadoc
+	/**
+	 * 
+	 */
 	public static Application currentApplication;
 	
+		/**
+		 * Main's method.
+		 * @param args
+		 */
 		public static void main(String[] args){
 			
 			currentApplication = new Application();

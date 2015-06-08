@@ -14,11 +14,11 @@ import java.io.IOException;
 public class AFile {
 
 	/**
-	 * file's name
+	 * File's name.
 	 */
 	private String name;
 	/**
-	 * number of character contained in the file
+	 * Number of character contained in the file.
 	 */
 	private int numberOfChar;
 	
@@ -35,8 +35,9 @@ public class AFile {
 	private Encryption encryption = new Encryption();
 	
 	/**
-	 * Create a file
+	 * Create a file.
 	 * @param name : file's name
+	 * @param parentFolder 
 	 */
 	public AFile(String name, Folder parentFolder){
 		this.name = name;
@@ -50,7 +51,7 @@ public class AFile {
 	}
 	
 	/**
-	 * Rename a file 
+	 * Rename a file. 
 	 * @param name : new file's name
 	 */
 	public void rename(String name){
@@ -71,7 +72,7 @@ public class AFile {
 	}
 	
 	/**
-	 * get the number of character in the file.
+	 * Get the number of character in the file.
 	 * @return the number of character 
 	 */
 	
@@ -82,6 +83,7 @@ public class AFile {
 	
 	/**
 	 * Read the file.
+	 * @param passphrase 
 	 * @return String of the file
 	 */
 	public String read(String passphrase){
@@ -99,20 +101,21 @@ public class AFile {
 			e.printStackTrace();
 		}
 		
-		return encryption.decrypt(text, passphrase);	
+		return this.encryption.decrypt(text, passphrase);	
 	}
 	
 	
 	/**
 	 * To rewrite in a file.
 	 * @param text the text to write
+	 * @param passphrase 
 	 */
 	public void reWrite(String text, String passphrase){
 		
 		FileWriter fileWrite = null;
 		try {
 			fileWrite = new FileWriter(this.file,true);
-			fileWrite.write(encryption.encrypt(text, passphrase));
+			fileWrite.write(this.encryption.encrypt(text, passphrase));
 			fileWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -123,13 +126,14 @@ public class AFile {
 	/**
 	 * To write in a file.
 	 * @param text the text to write
+	 * @param passphrase 
 	 */
 	public void write(String text, String passphrase){
 		
 		FileWriter fileWrite = null;
 		try {
 			fileWrite = new FileWriter(this.file,false);
-			fileWrite.write(encryption.encrypt(text, passphrase));
+			fileWrite.write(this.encryption.encrypt(text, passphrase));
 			fileWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -137,12 +141,18 @@ public class AFile {
 		
 	}
 	
-	
+	/**
+	 * To Delete a file.
+	 */
 	public void delete(){
 		this.file.delete();
 	}
 	
+	/**
+	 * To get a file.
+	 * @return the file
+	 */
 	public File getFile(){
-		return file;
+		return this.file;
 	}
 }

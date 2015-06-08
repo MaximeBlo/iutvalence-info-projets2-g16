@@ -13,6 +13,11 @@ import javax.swing.JSplitPane;
 
 import fr.iutvalence.java.s2.projet.IHM.Window;
 
+/**
+ * IHM identification.
+ * @author Elisa
+ *
+ */
 public class IhmIdentification extends JPanel implements ActionListener{
 
 	/**
@@ -34,6 +39,11 @@ public class IhmIdentification extends JPanel implements ActionListener{
 	
 	private Application currentApplication;
 	
+	/**
+	 * Ihm's constructor.
+	 * @param window
+	 * @param app
+	 */
 	public IhmIdentification(Window window, Application app){
 		
 		this.currentWindow = window;
@@ -67,7 +77,7 @@ public class IhmIdentification extends JPanel implements ActionListener{
 		this.mainSplit.setBottomComponent(this.validate);
 		this.mainSplit.setTopComponent(this.secondSplit);
 		
-		this.add(mainSplit);
+		this.add(this.mainSplit);
 		this.setBackground(new Color(0,255,0));
 		this.setVisible(true);
 		

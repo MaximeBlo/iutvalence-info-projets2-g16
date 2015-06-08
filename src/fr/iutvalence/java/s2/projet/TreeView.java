@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Class TreeView used to navigate between files and folder thanks to nodes
@@ -66,6 +65,8 @@ public class TreeView {
 	
 	/**
 	 * Create a file.
+	 * @param folder 
+	 * @param file 
 	 * @return true if create done and false if there is no folder with this name
 	 */
 	public boolean createFile(String folder, String file){
@@ -83,6 +84,7 @@ public class TreeView {
 	
 	/**
 	 * Create new folder.
+	 * @param folder 
 	 * @param name the name of the folder
 	 */
 	public void createFolder(String folder){
@@ -124,7 +126,7 @@ public class TreeView {
 	 */
 	public void saveTreeView(){
 		try {
-			FileWriter saveFile = new FileWriter(treeViewFile);
+			FileWriter saveFile = new FileWriter(this.treeViewFile);
 			
 			for(int numberOfFolder = 0; numberOfFolder < this.numberOfFolders;numberOfFolder++){
 				saveFile.write(this.folderCreated.get(numberOfFolder).getName() + (char)32 + this.folderCreated.get(numberOfFolder).getNumberOfFile() + "\n");

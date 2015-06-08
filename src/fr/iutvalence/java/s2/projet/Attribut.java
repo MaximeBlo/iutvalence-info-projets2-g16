@@ -51,24 +51,24 @@ public class Attribut
 	}
 	
 	/**
-	 * Method to get if special character are activate or not
-	 * @return
+	 * Method to get if special character are activate or not.
+	 * @return true if special characters are activated
 	 */
 	public boolean getSpecialChar(){
 		return this.specialChar;
 	}
 	
 	/**
-	 * Method to get if uppercase  letter are activate or not
-	 * @return
+	 * Method to get if uppercase  letter are activate or not.
+	 * @return true if uppercase are activated
 	 */
 	public boolean getUppercase(){
 		return this.uppercase;
 	}
 	
 	/**
-	 * Method to get if number are activate or not
-	 * @return
+	 * Method to get if numbers are activate or not.
+	 * @return  true if numbers are activated
 	 */
 	public boolean getNumber(){
 		return this.number;

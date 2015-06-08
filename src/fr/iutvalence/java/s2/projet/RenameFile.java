@@ -11,8 +11,18 @@ import javax.swing.JTextField;
 
 import fr.iutvalence.java.s2.projet.IHM.Window;
 
+/**
+ * Rename file.
+ * @author Elisa
+ *
+ */
 public class RenameFile extends JFrame implements ActionListener{
 	
+	/**
+	 * Serial Version UID.
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Application currentApplication;
 	
 	private JSplitPane frame;
@@ -43,6 +53,11 @@ public class RenameFile extends JFrame implements ActionListener{
 	
 	private Window currentWindow;
 	
+	/**
+	 * Rename file's constructor.
+	 * @param application
+	 * @param window
+	 */
 	public RenameFile(Application application, Window window){
 		this.currentApplication = application;
 		

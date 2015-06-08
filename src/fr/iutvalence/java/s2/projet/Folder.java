@@ -81,6 +81,11 @@ public class Folder {
 		return this.file;
 	}
 	
+	/**
+	 * A method to get a file.
+	 * @param fileName
+	 * @return a file
+	 */
 	public AFile getFile(String fileName){
 		AFile fileFound = null;
 		
