@@ -1,4 +1,4 @@
-package fr.iutvalence.java.s2.projet.IHM;
+package fr.iutvalence.java.s2.projet;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,10 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 
-import fr.iutvalence.java.s2.projet.Application;
+import fr.iutvalence.java.s2.projet.IHM.Window;
 
-public class CreateFolder extends JFrame implements ActionListener {
-	
+public class DeleteFolder extends JFrame implements ActionListener{
+
 	private Application currentApplication;
 	
 	private JSplitPane frame;
@@ -27,12 +27,12 @@ public class CreateFolder extends JFrame implements ActionListener {
 	
 	private Window currentWindow;
 	
-	public CreateFolder(Application application, Window window){
+	public DeleteFolder(Application application, Window window){
 		this.currentApplication = application;
 		
 		this.currentWindow = window;
 		
-		this.setTitle("Create a folder");
+		this.setTitle("Delete folder");
 		this.setSize(400, 300);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
@@ -69,14 +69,10 @@ public class CreateFolder extends JFrame implements ActionListener {
 		
 		if(source == this.validate){
 			
-			if(this.currentApplication.getTreeView().getFolder(this.folder.getText()) != null){
-				this.nameOfFolder.setText("This folder already exist ... Type a new name of folder:");
+			if(this.currentApplication.getTreeView().getFolder(this.folder.getText()) == null){
+				this.nameOfFolder.setText("This folder doesn't exist ... Type a new name of folder:");
 			}else{
-				if(this.folder.getText().length() > 8){
-					this.currentApplication.createFolder(this.folder.getText().substring(0, 8));
-				}else{
-					this.currentApplication.createFolder(this.folder.getText());
-				}
+				this.currentApplication.deleteAFolder(this.folder.getText());
 				this.currentWindow.getMainIhm().buildJTree();
 				this.dispose();
 			}

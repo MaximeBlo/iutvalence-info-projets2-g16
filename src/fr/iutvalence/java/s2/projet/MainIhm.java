@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.security.auth.kerberos.DelegationPermission;
 import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -20,6 +21,7 @@ import javax.swing.tree.TreePath;
 
 import fr.iutvalence.java.s2.projet.IHM.CreateFile;
 import fr.iutvalence.java.s2.projet.IHM.CreateFolder;
+import fr.iutvalence.java.s2.projet.IHM.DeleteFile;
 import fr.iutvalence.java.s2.projet.IHM.GeneratorOptionSelection;
 import fr.iutvalence.java.s2.projet.IHM.RenameFolder;
 import fr.iutvalence.java.s2.projet.IHM.Window;
@@ -90,7 +92,11 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	
 	private JMenuItem renameFile;
 	
+	private JMenuItem deleteFile;
+	
 	private JMenuItem renameFolder;
+	
+	private JMenuItem deleteFolder;
 	
 	private JMenuItem changePassword;
 	
@@ -295,7 +301,10 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		this.renameFolder.addActionListener(this);
 		this.folder.add(this.createFolder);
 	    this.folder.add(this.renameFolder);
-	    this.folder.add(new JMenuItem("Delete folder"));
+	    
+	    this.deleteFolder = new JMenuItem("Delete Folder");
+	    this.deleteFolder.addActionListener(this);
+	    this.folder.add(this.deleteFolder);
 	}
 	
 	/**
@@ -309,7 +318,10 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		this.renameFile = new JMenuItem("Rename File");
 		this.renameFile.addActionListener(this);
 	    this.file.add(this.renameFile);
-	    this.file.add(new JMenuItem("Delete File"));
+	    
+	    this.deleteFile = new JMenuItem("Delete File");
+	    this.deleteFile.addActionListener(this);
+	    this.file.add(this.deleteFile);
 	}
 
 
@@ -329,7 +341,12 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
         	new RenameFolder(this.currentApplication, this.currentWindow);
         }else if(source == this.renameFile){
         	new RenameFile(this.currentApplication, this.currentWindow);
+        }else if(source == this.deleteFile){
+        	new DeleteFile(this.currentApplication, this.currentWindow);
+        }else if(source == this.deleteFolder){
+        	new DeleteFolder(this.currentApplication, this.currentWindow);
         }
+        
 	}
 
 
