@@ -1,4 +1,4 @@
-package fr.iutvalence.java.s2.projet;
+package fr.iutvalence.java.s2.projet.IHM;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,17 +9,17 @@ import javax.swing.JLabel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 
-import fr.iutvalence.java.s2.projet.IHM.Window;
+import fr.iutvalence.java.s2.projet.Application;
 
 /**
- * Create folder.
+ * Change Password.
  * @author Elisa
  *
  */
-public class CreateFolder extends JFrame implements ActionListener {
-	
+public class ChangePassword extends JFrame implements ActionListener {
+
 	/**
-	 * Serial version uid.
+	 * Serial version  uid.
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -27,27 +27,27 @@ public class CreateFolder extends JFrame implements ActionListener {
 	
 	private JSplitPane frame;
 	
-	private JSplitPane nameOfFolderSplitPan;
+	private JSplitPane theCurrentPasswordSplitPan;
 	
-	private JLabel nameOfFolder;
+	private JLabel currentPassword;
 	
-	private JTextField folder;
+	private JTextField passwordCurrent;
 	
 	private JButton validate;
 	
 	private Window currentWindow;
 	
 	/**
-	 * Create folder's constructor.
+	 * Change password's constructor.
 	 * @param application
 	 * @param window
 	 */
-	public CreateFolder(Application application, Window window){
+	public ChangePassword(Application application, Window window){
 		this.currentApplication = application;
 		
 		this.currentWindow = window;
 		
-		this.setTitle("Create a folder");
+		this.setTitle("Delete folder");
 		this.setSize(400, 300);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
@@ -56,21 +56,21 @@ public class CreateFolder extends JFrame implements ActionListener {
 		this.frame.setDividerSize(0);
 		this.frame.setEnabled(false);
 		
-		this.nameOfFolderSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
-		this.nameOfFolderSplitPan.setDividerSize(0);
-		this.nameOfFolderSplitPan.setEnabled(false);
+		this.theCurrentPasswordSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		this.theCurrentPasswordSplitPan.setDividerSize(0);
+		this.theCurrentPasswordSplitPan.setEnabled(false);
 		
-		this.nameOfFolder = new JLabel("Name of folder:");
+		this.currentPassword = new JLabel("Name of folder:");
 		
-		this.folder = new JTextField();
+		this.passwordCurrent = new JTextField();
 		
 		this.validate = new JButton("Validate");
 		this.validate.addActionListener(this);
 		
-		this.nameOfFolderSplitPan.setTopComponent(this.nameOfFolder);
-		this.nameOfFolderSplitPan.setBottomComponent(this.folder);
+		this.theCurrentPasswordSplitPan.setTopComponent(this.currentPassword);
+		this.theCurrentPasswordSplitPan.setBottomComponent(this.passwordCurrent);
 		
-		this.frame.setTopComponent(this.nameOfFolderSplitPan);
+		this.frame.setTopComponent(this.theCurrentPasswordSplitPan);
 		this.frame.setBottomComponent(this.validate);
 		
 		this.getContentPane().add(this.frame);
@@ -84,14 +84,10 @@ public class CreateFolder extends JFrame implements ActionListener {
 		
 		if(source == this.validate){
 			
-			if(this.currentApplication.getTreeView().getFolder(this.folder.getText()) != null){
-				this.nameOfFolder.setText("This folder already exist ... Type a new name of folder:");
+			if(this.currentApplication.getTreeView().getFolder(this.passwordCurrent.getText()) == null){
+				this.currentPassword.setText("This folder doesn't exist ... Type a new name of folder:");
 			}else{
-				if(this.folder.getText().length() > 8){
-					this.currentApplication.createFolder(this.folder.getText().substring(0, 8));
-				}else{
-					this.currentApplication.createFolder(this.folder.getText());
-				}
+				this.currentApplication.deleteAFolder(this.passwordCurrent.getText());
 				this.currentWindow.getMainIhm().buildJTree();
 				this.dispose();
 			}
@@ -99,6 +95,4 @@ public class CreateFolder extends JFrame implements ActionListener {
 		
 	}
 	
-	
-
 }

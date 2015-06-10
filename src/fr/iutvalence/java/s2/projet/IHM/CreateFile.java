@@ -1,4 +1,4 @@
-package fr.iutvalence.java.s2.projet;
+package fr.iutvalence.java.s2.projet.IHM;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,17 +9,17 @@ import javax.swing.JLabel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 
-import fr.iutvalence.java.s2.projet.IHM.Window;
+import fr.iutvalence.java.s2.projet.Application;
 
 /**
- * Delete file.
+ * Create file.
  * @author Elisa
  *
  */
-public class DeleteFile extends JFrame implements ActionListener{
-
+public class CreateFile extends JFrame implements ActionListener{
+	
 	/**
-	 * Serial version uid.
+	 * Serial version uid
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -46,16 +46,16 @@ public class DeleteFile extends JFrame implements ActionListener{
 	private Window currentWindow;
 	
 	/**
-	 * Delete file's constructor.
+	 * Create file's constructor.
 	 * @param application
 	 * @param window
 	 */
-	public DeleteFile(Application application, Window window){
+	public CreateFile(Application application, Window window){
 		this.currentApplication = application;
 		
 		this.currentWindow = window;
 		
-		this.setTitle("Delete a file");
+		this.setTitle("Create a file");
 		this.setSize(400, 300);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
@@ -113,10 +113,13 @@ public class DeleteFile extends JFrame implements ActionListener{
 			this.nameOfFile.setText("Name of file:");
 			if(this.currentApplication.getTreeView().getFolder(this.folder.getText()) == null){
 				this.nameOfFolder.setText("There is no folder with this name, try another name: ");
-			}else if(this.currentApplication.getTreeView().getFolder(this.folder.getText()).getFile(this.file.getText()) == null){
-				this.nameOfFile.setText("There is no file with this name, try another name : ");
+			}else if(this.currentApplication.getTreeView().getFolder(this.folder.getText()).getFile(this.file.getText()) != null){
+				this.nameOfFile.setText("This file already exist, try another name : ");
 			}else{
-				this.currentApplication.deleteAFile(this.folder.getText(), this.file.getText());
+				if(this.file.getText().length() > 8){
+					this.currentApplication.createFile(this.folder.getText(), this.file.getText().substring(0, 8));
+				}
+				this.currentApplication.createFile(this.folder.getText(), this.file.getText());
 				this.currentWindow.getMainIhm().buildJTree();
 				this.dispose();
 			}
