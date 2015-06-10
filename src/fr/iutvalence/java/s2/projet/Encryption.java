@@ -82,7 +82,7 @@ public class Encryption {
 		    for (int lookingForTheChar=0;lookingForTheChar<=VigenereCipher.ARRAY_SIZE;lookingForTheChar++)
 		    {
 		    	if ((int) passphraseChar<=126)
-			    	if (this.cipher.getTable()[(int)(passphraseChar)-31][lookingForTheChar]==stuffToDecryptChar)
+			    	if (this.cipher.getTable()[(int)(passphraseChar)-32][lookingForTheChar]==stuffToDecryptChar)
 			    			finalString += this.cipher.getAllChar()[lookingForTheChar];
 		    	
 		    	if ((int) passphraseChar>126)
