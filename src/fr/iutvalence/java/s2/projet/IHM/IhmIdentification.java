@@ -10,8 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JSplitPane;
+import javax.swing.JTextField;
 
 import fr.iutvalence.java.s2.projet.Application;
+import fr.iutvalence.java.s2.projet.Encryption;
 
 /**
  * IHM identification.
@@ -40,11 +42,19 @@ public class IhmIdentification extends JPanel implements ActionListener{
 	private Application currentApplication;
 	
 	/**
+	 * variable this the password enter at the start of the app
+	 */
+	public static String Ppassword;
+	
+	private Encryption encrypt;
+	
+	/**
 	 * Ihm's constructor.
 	 * @param window
 	 * @param app
 	 */
 	public IhmIdentification(Window window, Application app){
+		this.encrypt=new Encryption();
 		
 		this.currentWindow = window;
 		this.currentApplication = app;
@@ -89,13 +99,17 @@ public class IhmIdentification extends JPanel implements ActionListener{
 		
 		if(source == this.validate){
 			
+			
+			Ppassword =(String.copyValueOf(this.password.getPassword()));
+			this.currentApplication.setPassphrase(Ppassword);
+			
 			//System.out.println(this.currentApplication.getPasswordFile().read("h").substring(47));
 			
 			if(this.currentApplication.passwordIsVoid()){
-				this.currentApplication.savePassword(String.copyValueOf(this.password.getPassword()));
+				this.currentApplication.savePassword(this.encrypt.encrypt(Ppassword, Ppassword));
 				this.currentWindow.changeIhm();
 			}else{
-				if(this.currentApplication.identification(String.copyValueOf(this.password.getPassword()))){
+				if(this.currentApplication.identification(this.encrypt.encrypt(Ppassword, Ppassword))){
 					this.currentWindow.changeIhm();
 				}else
 					this.title.setText("Wrong password... Enter the right one:");

@@ -2,6 +2,8 @@ package fr.iutvalence.java.s2.projet;
 
 import java.util.ArrayList;
 
+import fr.iutvalence.java.s2.projet.IHM.IhmIdentification;
+
 /**
 * The main application.
 * @author MaximeBlo
@@ -21,6 +23,14 @@ public class Application{
 	public Application() {
 	    this.treeView = new TreeView();
 	    this.passwordSave = new AFile("password",new Folder("void"));
+	}
+	
+	/**
+	 * Setter passphrase.
+	 * @param passphrase
+	 */
+	public void setPassphrase(String passphrase){
+		this.passphrase=passphrase;
 	}
 	
 	/**
@@ -126,7 +136,7 @@ public class Application{
 	 * @return the file to read
 	 */
 	public String readFile(String folder, String file){
-		return this.treeView.getFolder(folder).getFile(file).read(this.passphrase); //TODO C'ETAIT LA LE PROBLEME
+		return this.treeView.getFolder(folder).getFile(file).read(this.passphrase);
 	}
 	
 	/**

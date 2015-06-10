@@ -61,7 +61,7 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	/**
 	 * The menu save.
 	 */
-	private JMenu save;
+	/*private JMenu save;*/
 	
 	/**
 	 * The panel who contain the JTree.
@@ -98,7 +98,7 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	
 	private JMenuItem deleteFolder;
 	
-	private JMenuItem changePassword;
+	/*private JMenuItem changePassword;*/
 	
 	/**
 	 * The generate password item of the menu.
@@ -246,22 +246,24 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		this.file = new JMenu("File");
 	    this.folder = new JMenu("Folder");
 	    this.password = new JMenu("Password");
-	    this.save = new JMenu("Save");
+	    //this.save = new JMenu("Save");
 	    
 	    this.buildMenuFile();
 	    this.buildMenuFolder();
 	    this.buildMenuPassword();
-	    this.buildMenuSave();
+	    //this.buildMenuSave();
 	}
 	
 	
-	/**
+
+	 /**
 	 * Build the save menu.
 	 */
+	/*
 	private void buildMenuSave() {
-		this.save.add(new JMenuItem("Save all"));
+		//this.save.add(new JMenuItem("Save all"));
 		
-	}
+	}*/
 
 	/**
 	 * Build the password menu.
@@ -271,9 +273,9 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		this.generatePassword.addActionListener(this);
 		this.password.add(this.generatePassword);
 		
-		this.changePassword = new JMenuItem("Change Password");
-		this.changePassword.addActionListener(this);
-		this.password.add(this.changePassword);
+		//this.changePassword = new JMenuItem("Change Password");
+		//this.changePassword.addActionListener(this);
+		//this.password.add(this.changePassword);
 	}
 
 
@@ -287,7 +289,7 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		this.menu.add(this.file);
 	    this.menu.add(this.folder);
 	    this.menu.add(this.password);
-	    this.menu.add(this.save);
+	    //this.menu.add(this.save);
 	}
 	
 	
