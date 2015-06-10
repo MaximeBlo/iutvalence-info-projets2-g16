@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import fr.iutvalence.java.s2.projet.Application;
-import fr.iutvalence.java.s2.projet.IhmIdentification;
 
 /**
 * Window's class (graphical aspect).

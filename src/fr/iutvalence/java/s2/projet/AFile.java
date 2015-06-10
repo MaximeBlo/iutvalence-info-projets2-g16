@@ -27,11 +27,6 @@ public class AFile {
 	 */
 	private File file;
 	
-	/**
-	 * The parent folder of the file.
-	 */
-	private Folder parentFolder;
-	
 	private Encryption encryption = new Encryption();
 	
 	/**
@@ -47,7 +42,6 @@ public class AFile {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.parentFolder = parentFolder;
 	}
 	
 	/**
