@@ -1,11 +1,12 @@
 package fr.iutvalence.java.s2.projet.IHM;
 
 import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import fr.iutvalence.java.s2.projet.Application;
 import fr.iutvalence.java.s2.projet.IhmIdentification;
-import fr.iutvalence.java.s2.projet.MainIhm;
 
 /**
 * Window's class (graphical aspect).

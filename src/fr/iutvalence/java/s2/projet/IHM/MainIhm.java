@@ -1,4 +1,4 @@
-package fr.iutvalence.java.s2.projet;
+package fr.iutvalence.java.s2.projet.IHM;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -18,8 +18,13 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import fr.iutvalence.java.s2.projet.IHM.GeneratorOptionSelection;
-import fr.iutvalence.java.s2.projet.IHM.Window;
+import fr.iutvalence.java.s2.projet.Application;
+import fr.iutvalence.java.s2.projet.CreateFile;
+import fr.iutvalence.java.s2.projet.CreateFolder;
+import fr.iutvalence.java.s2.projet.DeleteFile;
+import fr.iutvalence.java.s2.projet.DeleteFolder;
+import fr.iutvalence.java.s2.projet.RenameFile;
+import fr.iutvalence.java.s2.projet.RenameFolder;
 
 /**
  * IHM's main.
