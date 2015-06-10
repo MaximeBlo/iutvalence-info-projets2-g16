@@ -1,4 +1,4 @@
-package fr.iutvalence.java.s2.projet;
+package fr.iutvalence.java.s2.projet.IHM;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JSplitPane;
 
-import fr.iutvalence.java.s2.projet.IHM.Window;
+import fr.iutvalence.java.s2.projet.Application;
 
 /**
  * IHM identification.
