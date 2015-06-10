@@ -1,13 +1,6 @@
 package fr.iutvalence.java.s2.projet;
 
 import java.util.ArrayList;
-//TODO enlever si vraiment inutile
-/*
-import java.io.File;
-import java.net.PasswordAuthentication;
-import java.util.Scanner;
-import fr.iutvalence.java.s2.projet.IHM.Window;
-*/
 
 /**
 * The main application.
@@ -19,8 +12,6 @@ public class Application{
 	private Generator gen;
 	
 	private AFile passwordSave;
-	
-	//TODO J'EN AVAIS JUSTE BESOIN POUR QUE CA COMPIL
 	
 	private String passphrase="h";
 
@@ -170,10 +161,9 @@ public class Application{
 		return this.treeView.getNumberOfFolder();	
 	}
 	
-	//TODO Javadoc
 	/**
-	 * 
-	 * @return
+	 * A method to get a folder.
+	 * @return a folder
 	 */
 	public ArrayList<Folder> getFolders(){
 		return this.treeView.getFolder();
