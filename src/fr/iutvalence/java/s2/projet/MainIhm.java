@@ -18,11 +18,7 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import fr.iutvalence.java.s2.projet.IHM.CreateFile;
-import fr.iutvalence.java.s2.projet.IHM.CreateFolder;
-import fr.iutvalence.java.s2.projet.IHM.DeleteFile;
 import fr.iutvalence.java.s2.projet.IHM.GeneratorOptionSelection;
-import fr.iutvalence.java.s2.projet.IHM.RenameFolder;
 import fr.iutvalence.java.s2.projet.IHM.Window;
 
 /**

@@ -1,4 +1,4 @@
-package fr.iutvalence.java.s2.projet.IHM;
+package fr.iutvalence.java.s2.projet;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 
-import fr.iutvalence.java.s2.projet.Application;
+import fr.iutvalence.java.s2.projet.IHM.Window;
 
 /**
  * Create folder.

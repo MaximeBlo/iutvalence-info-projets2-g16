@@ -1,4 +1,4 @@
-package fr.iutvalence.java.s2.projet.IHM;
+package fr.iutvalence.java.s2.projet;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,53 +9,52 @@ import javax.swing.JLabel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 
-import fr.iutvalence.java.s2.projet.Application;
+import fr.iutvalence.java.s2.projet.IHM.Window;
 
 /**
- * Delete file.
+ * Rename folder.
  * @author Elisa
  *
  */
-public class DeleteFile extends JFrame implements ActionListener{
-
+public class RenameFolder extends JFrame implements ActionListener{
 	/**
 	 * Serial version uid.
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Application currentApplication;
+private Application currentApplication;
 	
 	private JSplitPane frame;
 	
 	private JSplitPane twoOptionSplitPan;
 	
+	private JSplitPane renameSplitPan;
+	
 	private JSplitPane nameOfFolderSplitPan;
-	
-	private JSplitPane nameOfFileSplitPan;
-	
-	private JLabel nameOfFile;
 	
 	private JLabel nameOfFolder;
 	
-	private JTextField file;
+	private JLabel renameFolder;
 	
 	private JTextField folder;
+	
+	private JTextField rename;
 	
 	private JButton validate;
 	
 	private Window currentWindow;
 	
 	/**
-	 * Delete file's constructor.
+	 * Rename folder's constructor.
 	 * @param application
 	 * @param window
 	 */
-	public DeleteFile(Application application, Window window){
+	public RenameFolder(Application application, Window window){
 		this.currentApplication = application;
 		
 		this.currentWindow = window;
 		
-		this.setTitle("Delete a file");
+		this.setTitle("Rename folder");
 		this.setSize(400, 300);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
@@ -68,33 +67,33 @@ public class DeleteFile extends JFrame implements ActionListener{
 		this.twoOptionSplitPan.setDividerSize(0);
 		this.twoOptionSplitPan.setEnabled(false);
 		
-		this.nameOfFileSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
-		this.nameOfFileSplitPan.setDividerSize(0);
-		this.nameOfFileSplitPan.setEnabled(false);
-		
 		this.nameOfFolderSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		this.nameOfFolderSplitPan.setDividerSize(0);
 		this.nameOfFolderSplitPan.setEnabled(false);
 		
-		this.nameOfFile = new JLabel("Name of file:");
+		this.renameSplitPan = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		this.renameSplitPan.setDividerSize(0);
+		this.renameSplitPan.setEnabled(false);
 		
-		this.nameOfFolder = new JLabel("Name of folder:");
+		this.nameOfFolder = new JLabel("New name of folder:");
 		
-		this.file = new JTextField();
+		this.renameFolder = new JLabel("Name of folder:");
 		
 		this.folder = new JTextField();
+		
+		this.rename = new JTextField();
 		
 		this.validate = new JButton("Validate");
 		this.validate.addActionListener(this);
 		
-		this.nameOfFileSplitPan.setTopComponent(this.nameOfFile);
-		this.nameOfFileSplitPan.setBottomComponent(this.file);
-		
 		this.nameOfFolderSplitPan.setTopComponent(this.nameOfFolder);
 		this.nameOfFolderSplitPan.setBottomComponent(this.folder);
 		
-		this.twoOptionSplitPan.setTopComponent(this.nameOfFolderSplitPan);
-		this.twoOptionSplitPan.setBottomComponent(this.nameOfFileSplitPan);
+		this.renameSplitPan.setTopComponent(this.renameFolder);
+		this.renameSplitPan.setBottomComponent(this.rename);
+		
+		this.twoOptionSplitPan.setTopComponent(this.renameSplitPan);
+		this.twoOptionSplitPan.setBottomComponent(this.nameOfFolderSplitPan);
 		
 		this.frame.setTopComponent(this.twoOptionSplitPan);
 		this.frame.setBottomComponent(this.validate);
@@ -109,17 +108,9 @@ public class DeleteFile extends JFrame implements ActionListener{
 		Object source = e.getSource();
 		
 		if(source == this.validate){
-			this.nameOfFolder.setText("Name of folder:");
-			this.nameOfFile.setText("Name of file:");
-			if(this.currentApplication.getTreeView().getFolder(this.folder.getText()) == null){
-				this.nameOfFolder.setText("There is no folder with this name, try another name: ");
-			}else if(this.currentApplication.getTreeView().getFolder(this.folder.getText()).getFile(this.file.getText()) == null){
-				this.nameOfFile.setText("There is no file with this name, try another name : ");
-			}else{
-				this.currentApplication.deleteAFile(this.folder.getText(), this.file.getText());
-				this.currentWindow.getMainIhm().buildJTree();
-				this.dispose();
-			}
+			this.currentApplication.rename(this.rename.getText(), this.folder.getText());
+			this.currentWindow.getMainIhm().buildJTree();
+			this.dispose();
 		}
 		
 	}
@@ -127,3 +118,4 @@ public class DeleteFile extends JFrame implements ActionListener{
 	
 
 }
+
