@@ -11,7 +11,17 @@ import javax.swing.JTextField;
 
 import fr.iutvalence.java.s2.projet.Application;
 
+/**
+ * Delete file.
+ * @author Elisa
+ *
+ */
 public class DeleteFile extends JFrame implements ActionListener{
+
+	/**
+	 * Serial version uid.
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Application currentApplication;
 	
@@ -35,6 +45,11 @@ public class DeleteFile extends JFrame implements ActionListener{
 	
 	private Window currentWindow;
 	
+	/**
+	 * Delete file's constructor.
+	 * @param application
+	 * @param window
+	 */
 	public DeleteFile(Application application, Window window){
 		this.currentApplication = application;
 		

@@ -11,13 +11,21 @@ import javax.swing.JTextField;
 
 import fr.iutvalence.java.s2.projet.IHM.Window;
 
+/**
+ * Change Password.
+ * @author Elisa
+ *
+ */
 public class ChangePassword extends JFrame implements ActionListener {
+
+	/**
+	 * Serial version  uid.
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Application currentApplication;
 	
 	private JSplitPane frame;
-	
-	private JSplitPane changePasswordSplitPan;
 	
 	private JSplitPane theCurrentPasswordSplitPan;
 	
@@ -25,16 +33,15 @@ public class ChangePassword extends JFrame implements ActionListener {
 	
 	private JTextField passwordCurrent;
 	
-	private JSplitPane theNewPassword;
-	
-	private JLabel newPassword;
-	
-	private JTextField passwordNew;
-	
 	private JButton validate;
 	
 	private Window currentWindow;
 	
+	/**
+	 * Change password's constructor.
+	 * @param application
+	 * @param window
+	 */
 	public ChangePassword(Application application, Window window){
 		this.currentApplication = application;
 		

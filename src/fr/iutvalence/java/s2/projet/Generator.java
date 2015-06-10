@@ -1,14 +1,14 @@
 package fr.iutvalence.java.s2.projet;
 
 /**
- * Generator of password
+ * Generator of password.
  * @author maximeBlo
  *
  */
 public class Generator
 {
 	/**
-	 * List of option to create password
+	 * List of option to create password.
 	 */
 	private Attribut attribut;
 	
@@ -27,7 +27,7 @@ public class Generator
 	}
 	
 	/**
-	 * Method to generate password
+	 * Method to generate password.
 	 * @return the password generated
 	 */
 	public String generer(){
@@ -53,7 +53,7 @@ public class Generator
 	}
 	
 	/**
-	 * Method to generate an Int
+	 * Method to generate an Int.
 	 * @return a int 
 	 */
 	private static int generateInt(){
@@ -65,7 +65,7 @@ public class Generator
 	}
 	
 	/**
-	 * Method to generate a char
+	 * Method to generate a char.
 	 * @return a char
 	 */
 	private static char generateChar(){
@@ -77,7 +77,7 @@ public class Generator
 	}
 	
 	/**
-	 * Method to generate an Uppercase letter
+	 * Method to generate an Uppercase letter.
 	 * @return a char in Uppercase
 	 */
 	private static char generateUppercase(){
@@ -89,7 +89,7 @@ public class Generator
 	}
 	
 	/**
-	 * Method to generate special character
+	 * Method to generate special character.
 	 * @return the special character
 	 */
 	private static char generateSpecialCharacter(){

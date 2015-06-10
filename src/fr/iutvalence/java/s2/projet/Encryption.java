@@ -61,7 +61,7 @@ public class Encryption {
 	}
 	
 	/**
-	 * A method to decrypt a stuff
+	 * A method to decrypt a stuff.
 	 * @param stuffToDecrypt
 	 * @param passphrase
 	 * @return a decrypted stuff

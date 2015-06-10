@@ -11,7 +11,17 @@ import javax.swing.JTextField;
 
 import fr.iutvalence.java.s2.projet.IHM.Window;
 
+/**
+ * Delete Folder.
+ * @author Elisa
+ *
+ */
 public class DeleteFolder extends JFrame implements ActionListener{
+
+	/**
+	 * Serial version uid.
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Application currentApplication;
 	
@@ -27,6 +37,11 @@ public class DeleteFolder extends JFrame implements ActionListener{
 	
 	private Window currentWindow;
 	
+	/**
+	 * Delete folder's constructor.
+	 * @param application
+	 * @param window
+	 */
 	public DeleteFolder(Application application, Window window){
 		this.currentApplication = application;
 		

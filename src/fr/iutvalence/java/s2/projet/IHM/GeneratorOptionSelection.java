@@ -17,10 +17,15 @@ import javax.swing.JTextField;
 import fr.iutvalence.java.s2.projet.Application;
 import fr.iutvalence.java.s2.projet.Attribut;
 
+/**
+ * Generator Option selection.
+ * @author Elisa
+ *
+ */
 public class GeneratorOptionSelection extends JFrame implements ActionListener, ItemListener{
 
-		/**
-	 * 
+	/**
+	 * Serial version uid.
 	 */
 	private static final long serialVersionUID = 1L;
 		private JSplitPane mainSplitSpan;
@@ -40,6 +45,10 @@ public class GeneratorOptionSelection extends JFrame implements ActionListener, 
 		private boolean special;
 		private boolean numb;
 		
+		/**
+		 * Generator option selection's constructor.
+		 * @param application
+		 */
 		public GeneratorOptionSelection(Application application){
 			
 			this.currentApplication = application;
@@ -91,7 +100,7 @@ public class GeneratorOptionSelection extends JFrame implements ActionListener, 
 			this.mainSplitSpan.setTopComponent(this.description);
 			
 			this.secondSplitPan.setTopComponent(this.thirdSplitPan);
-			this.secondSplitPan.setBottomComponent(check);
+			this.secondSplitPan.setBottomComponent(this.check);
 			
 			
 			this.thirdSplitPan.setDividerLocation(400);

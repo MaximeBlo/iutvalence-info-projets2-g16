@@ -11,8 +11,18 @@ import javax.swing.JTextField;
 
 import fr.iutvalence.java.s2.projet.Application;
 
+/**
+ * Create file.
+ * @author Elisa
+ *
+ */
 public class CreateFile extends JFrame implements ActionListener{
 	
+	/**
+	 * Serial version uid
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Application currentApplication;
 	
 	private JSplitPane frame;
@@ -35,6 +45,11 @@ public class CreateFile extends JFrame implements ActionListener{
 	
 	private Window currentWindow;
 	
+	/**
+	 * Create file's constructor.
+	 * @param application
+	 * @param window
+	 */
 	public CreateFile(Application application, Window window){
 		this.currentApplication = application;
 		

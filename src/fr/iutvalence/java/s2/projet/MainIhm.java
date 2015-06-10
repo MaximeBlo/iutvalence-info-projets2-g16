@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.security.auth.kerberos.DelegationPermission;
 import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -34,7 +33,7 @@ import fr.iutvalence.java.s2.projet.IHM.Window;
 public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	
 	/**
-	 * SerialVersionUID
+	 * SerialVersionUID.
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -138,7 +137,7 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	private Application currentApplication;
 	
 	/**
-	 * Main IHM's constructor
+	 * Main IHM's constructor.
 	 * @param window
 	 * @param app
 	 */

@@ -11,8 +11,18 @@ import javax.swing.JTextField;
 
 import fr.iutvalence.java.s2.projet.Application;
 
+/**
+ * Create folder.
+ * @author Elisa
+ *
+ */
 public class CreateFolder extends JFrame implements ActionListener {
 	
+	/**
+	 * Serial version uid.
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Application currentApplication;
 	
 	private JSplitPane frame;
@@ -27,6 +37,11 @@ public class CreateFolder extends JFrame implements ActionListener {
 	
 	private Window currentWindow;
 	
+	/**
+	 * Create folder's constructor.
+	 * @param application
+	 * @param window
+	 */
 	public CreateFolder(Application application, Window window){
 		this.currentApplication = application;
 		

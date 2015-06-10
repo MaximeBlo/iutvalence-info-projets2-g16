@@ -21,7 +21,7 @@ import fr.iutvalence.java.s2.projet.IHM.Window;
 public class IhmIdentification extends JPanel implements ActionListener{
 
 	/**
-	 * 
+	 * Serial version uid.
 	 */
 	private static final long serialVersionUID = 1L;
 

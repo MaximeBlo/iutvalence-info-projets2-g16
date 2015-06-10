@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Class TreeView used to navigate between files and folder thanks to nodes
+ * Class TreeView used to navigate between files and folder thanks to nodes.
  * @author Tutur
  *
  */
@@ -17,12 +17,12 @@ public class TreeView {
 	
 	
 	/**
-	* Array of file in the TreeView
+	* Array of file in the TreeView.
 	*/
 	private ArrayList<Folder> folderCreated;
 	
 	/**
-	 * Number of folder in the TreeView
+	 * Number of folder in the TreeView.
 	 */
 	private int numberOfFolders;
 	
@@ -32,7 +32,7 @@ public class TreeView {
 	private File treeViewFile;
 	
 	/**
-	 * Create a TreeView 
+	 * Create a TreeView .
 	 * @param position : TreeView's position in the window
 	 * @param width : TreeView's width
 	 * @param height : TreeView's height
@@ -47,7 +47,7 @@ public class TreeView {
 	}
 
 	/**
-	* Return the representation of the TreeView in the consol
+	* Return the representation of the TreeView in the console.
 	* @return representation The String of the representation of the treeView
 	*/
 	@Override
@@ -143,7 +143,7 @@ public class TreeView {
 	}
 	
 	/**
-	 * get folderCreated
+	 * Get folderCreated.
 	 * @return folderCreated
 	 */
 	public ArrayList<Folder> getFolder(){
@@ -168,7 +168,7 @@ public class TreeView {
 	}
 	
 	/**
-	 * Reconstruct the TreeView at the launch of application
+	 * Reconstruct the TreeView at the launch of application.
 	 */
 	public void reconstructionTreeView(){
 		

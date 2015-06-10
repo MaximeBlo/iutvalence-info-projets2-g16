@@ -11,9 +11,8 @@ import fr.iutvalence.java.s2.projet.IHM.Window;
  */
 public class Main {
 
-	//TODO Javadoc
 	/**
-	 * 
+	 * Application
 	 */
 	public static Application currentApplication;
 	

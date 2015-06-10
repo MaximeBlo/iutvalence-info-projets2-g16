@@ -10,20 +10,20 @@ import java.util.ArrayList;
 public class Folder {
 	
 	/**
-	 * Folder's name
+	 * Folder's name.
 	 */
 	private String name;
 	/**
-	 * Number of file contained in the folder
+	 * Number of file contained in the folder.
 	 */
 	private int numberOfFile;
 	/**
-	 * Array containing all the files
+	 * Array containing all the files.
 	 */
 	private ArrayList<AFile> file;
 	
 	/**
-	 * Create a folder 
+	 * Create a folder .
 	 * @param name : name of the created folder
 	 */
 	public Folder(String name){
@@ -33,7 +33,7 @@ public class Folder {
 	}
 	
 	/**
-	 * Add a file to the folder
+	 * Add a file to the folder.
 	 * @param fileToAdd : file to add to the folder
 	 */
 	public void addFile(AFile fileToAdd){
@@ -42,7 +42,7 @@ public class Folder {
 	}
 	
 	/**
-	 * Delete a file from a folder
+	 * Delete a file from a folder.
 	 * @param fileToDelete : file to be deleted
 	 */
 	public void deleteFile(AFile fileToDelete){
@@ -58,7 +58,7 @@ public class Folder {
 	}
 	
 	/**
-	 * Rename a folder
+	 * Rename a folder.
 	 * @param name : new folder's name
 	 */
 	public void rename(String name){
