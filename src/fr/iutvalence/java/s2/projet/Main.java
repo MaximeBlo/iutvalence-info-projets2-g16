@@ -26,8 +26,6 @@ public class Main {
 			currentApplication = new Application();
 			Scanner choiceSwitch;
 
-			//TODO TROUVER UN MOYEN DE STOCKER LA PASSPHRASE QUELQUE PART MAIS QU'ELLE SE SUPPRIMER A LA FERMETURE
-			
 			//GeneratorOptionSelection gen = new GeneratorOptionSelection();
 			
 			//currentApplication.resetPassword();

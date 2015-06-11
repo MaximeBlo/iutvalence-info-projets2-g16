@@ -19,16 +19,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
 import fr.iutvalence.java.s2.projet.Application;
-<<<<<<< HEAD
-import fr.iutvalence.java.s2.projet.ChangePassword;
-import fr.iutvalence.java.s2.projet.CreateFile;
-import fr.iutvalence.java.s2.projet.CreateFolder;
-import fr.iutvalence.java.s2.projet.DeleteFile;
-import fr.iutvalence.java.s2.projet.DeleteFolder;
-import fr.iutvalence.java.s2.projet.RenameFile;
-import fr.iutvalence.java.s2.projet.RenameFolder;
-=======
->>>>>>> branch 'master' of https://github.com/combear/iutvalence-info-projets2-g16.git
 
 /**
  * IHM's main.
