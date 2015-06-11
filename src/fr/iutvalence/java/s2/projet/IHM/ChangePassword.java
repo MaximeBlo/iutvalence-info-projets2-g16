@@ -6,10 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JSplitPane;
-import javax.swing.JTextField;
 
 import fr.iutvalence.java.s2.projet.Application;
+import fr.iutvalence.java.s2.projet.Encryption;
 
 /**
  * Change Password.
@@ -29,13 +30,13 @@ public class ChangePassword extends JFrame implements ActionListener {
 	
 	private JSplitPane theCurrentPasswordSplitPan;
 	
-	private JLabel currentPassword;
+	private JLabel newPassword;
 	
-	private JTextField passwordCurrent;
+	private JPasswordField passwordNew;
 	
 	private JButton validate;
 	
-	private Window currentWindow;
+	private Encryption encrypt;
 	
 	/**
 	 * Change password's constructor.
@@ -45,9 +46,7 @@ public class ChangePassword extends JFrame implements ActionListener {
 	public ChangePassword(Application application, Window window){
 		this.currentApplication = application;
 		
-		this.currentWindow = window;
-		
-		this.setTitle("Delete folder");
+		this.setTitle("Change password");
 		this.setSize(400, 300);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
@@ -60,15 +59,15 @@ public class ChangePassword extends JFrame implements ActionListener {
 		this.theCurrentPasswordSplitPan.setDividerSize(0);
 		this.theCurrentPasswordSplitPan.setEnabled(false);
 		
-		this.currentPassword = new JLabel("Name of folder:");
+		this.newPassword = new JLabel("New password:");
 		
-		this.passwordCurrent = new JTextField();
+		this.passwordNew = new JPasswordField();
 		
 		this.validate = new JButton("Validate");
 		this.validate.addActionListener(this);
 		
-		this.theCurrentPasswordSplitPan.setTopComponent(this.currentPassword);
-		this.theCurrentPasswordSplitPan.setBottomComponent(this.passwordCurrent);
+		this.theCurrentPasswordSplitPan.setTopComponent(this.newPassword);
+		this.theCurrentPasswordSplitPan.setBottomComponent(this.passwordNew);
 		
 		this.frame.setTopComponent(this.theCurrentPasswordSplitPan);
 		this.frame.setBottomComponent(this.validate);
@@ -83,14 +82,11 @@ public class ChangePassword extends JFrame implements ActionListener {
 		Object source = e.getSource();
 		
 		if(source == this.validate){
+			String Ppassword=(String.copyValueOf(this.passwordNew.getPassword()));
+			this.currentApplication.resetPassword();
+			this.currentApplication.savePassword(this.encrypt.encrypt(Ppassword, Ppassword));
+			this.dispose();
 			
-			if(this.currentApplication.getTreeView().getFolder(this.passwordCurrent.getText()) == null){
-				this.currentPassword.setText("This folder doesn't exist ... Type a new name of folder:");
-			}else{
-				this.currentApplication.deleteAFolder(this.passwordCurrent.getText());
-				this.currentWindow.getMainIhm().buildJTree();
-				this.dispose();
-			}
 		}
 		
 	}

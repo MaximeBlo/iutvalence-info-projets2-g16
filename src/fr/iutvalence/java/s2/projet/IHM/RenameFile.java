@@ -96,7 +96,7 @@ public class RenameFile extends JFrame implements ActionListener{
 		
 		this.nameOfCurrentFolder = new JLabel("Name of the folder:");
 		
-		this.newNameOfFile = new JLabel("New name for the folder:");
+		this.newNameOfFile = new JLabel("New name for the file:");
 		
 		this.file = new JTextField();
 		
