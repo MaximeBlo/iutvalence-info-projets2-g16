@@ -2,8 +2,6 @@ package fr.iutvalence.java.s2.projet;
 
 import java.util.ArrayList;
 
-import fr.iutvalence.java.s2.projet.IHM.IhmIdentification;
-
 /**
 * The main application.
 * @author MaximeBlo

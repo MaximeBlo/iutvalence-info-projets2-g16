@@ -10,8 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JSplitPane;
-import javax.swing.JTextField;
-
 import fr.iutvalence.java.s2.projet.Application;
 import fr.iutvalence.java.s2.projet.Encryption;
 
@@ -42,7 +40,7 @@ public class IhmIdentification extends JPanel implements ActionListener{
 	private Application currentApplication;
 	
 	/**
-	 * variable this the password enter at the start of the app
+	 * This is the password enter at the starting of the app.
 	 */
 	public static String Ppassword;
 	

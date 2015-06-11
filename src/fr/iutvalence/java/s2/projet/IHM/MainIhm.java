@@ -19,6 +19,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
 import fr.iutvalence.java.s2.projet.Application;
+import fr.iutvalence.java.s2.projet.ChangePassword;
 import fr.iutvalence.java.s2.projet.CreateFile;
 import fr.iutvalence.java.s2.projet.CreateFolder;
 import fr.iutvalence.java.s2.projet.DeleteFile;
@@ -98,7 +99,7 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 	
 	private JMenuItem deleteFolder;
 	
-	/*private JMenuItem changePassword;*/
+	private JMenuItem changePassword;
 	
 	/**
 	 * The generate password item of the menu.
@@ -273,9 +274,9 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
 		this.generatePassword.addActionListener(this);
 		this.password.add(this.generatePassword);
 		
-		//this.changePassword = new JMenuItem("Change Password");
-		//this.changePassword.addActionListener(this);
-		//this.password.add(this.changePassword);
+		this.changePassword = new JMenuItem("Change Password");
+		this.changePassword.addActionListener(this);
+		this.password.add(this.changePassword);
 	}
 
 
@@ -347,6 +348,8 @@ public class MainIhm extends JPanel implements ActionListener, MouseListener{
         	new DeleteFile(this.currentApplication, this.currentWindow);
         }else if(source == this.deleteFolder){
         	new DeleteFolder(this.currentApplication, this.currentWindow);
+        }else if(source == this.changePassword){
+        		new ChangePassword(this.currentApplication, this.currentWindow);
         }
         
 	}
